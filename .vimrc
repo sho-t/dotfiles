@@ -1,3 +1,30 @@
+"NeoBundle Scripts-----------------------------
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" My Bundles here:
+NeoBundle 'Shougo/unite.vim'
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------
+
 "Encode
 set encoding=utf-8
 scriptencoding utf-8
