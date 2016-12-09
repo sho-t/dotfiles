@@ -1,6 +1,13 @@
 @echo off
 
-mklink %HOMEPATH%"\.vimrc" %HOMEPATH%"\dotfiles\.vimrc"
-mklink %HOMEPATH%"\.gvimrc" %HOMEPATH%"\dotfiles\.gvimrc"
+for %%i in (.?*) do (
+   mklink %~d0%HOMEPATH%\%%i %~d0%HOMEPATH%\dotfiles\%%i
+)
 
-exit 0
+for /d %%d in (.?*) do (
+   if %%d neq .. if %%d neq .git (
+     mklink /D %~d0%HOMEPATH%\%%d %~d0%HOMEPATH%\dotfiles\%%d
+   )
+)
+
+Pause
