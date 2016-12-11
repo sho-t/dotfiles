@@ -16,6 +16,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'itchyny/lightline.vim'
 
 call neobundle#end()
 
@@ -35,7 +36,6 @@ set ambiwidth=double
 "File
 set hidden
 set autoread
-set number
 
 "Windoows
 set clipboard=unnamed
@@ -51,9 +51,18 @@ set shiftwidth=4
 "Cursor
 set whichwrap=b,s,h,l,<,>,[,],~
 set number
-set ruler
 set cursorline
 
 "Code
 set showmatch
 set smarttab
+
+"Command
+set wildmenu
+set history=5000
+
+"StatusLine
+set laststatus=2
+set showmode
+set showcmd
+set ruler
