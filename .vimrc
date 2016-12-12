@@ -24,7 +24,11 @@ call neobundle#end()
 filetype plugin indent on
 
 NeoBundleCheck
-"End NeoBundle Scripts-------------------------
+
+" LightLine Script-----------------------------
+let g:lightline = {
+      \ 'colorscheme': 'wombat'
+      \ }
 
 "Encode
 set encoding=utf-8
