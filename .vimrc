@@ -36,6 +36,8 @@ set ambiwidth=double
 "File
 set hidden
 set autoread
+set nobackup
+set noundofile
 
 "Windoows
 set clipboard=unnamed
