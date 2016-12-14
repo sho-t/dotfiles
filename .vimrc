@@ -16,7 +16,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " My Bundles here:
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'Yggdroot/indentLine'
 
 call neobundle#end()
 
