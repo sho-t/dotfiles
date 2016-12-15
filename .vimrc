@@ -17,8 +17,13 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Yggdroot/indentLine'
+
+" ColorScheme here
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'tomasr/molokai'
 
 call neobundle#end()
 
