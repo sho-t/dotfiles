@@ -22,6 +22,7 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Yggdroot/indentLine'
 
 " ColorScheme here
+NeoBundle 'altercation/vim-colors-solarized' 
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'tomasr/molokai'
 
@@ -32,10 +33,17 @@ filetype plugin indent on
 
 NeoBundleCheck
 
-" LightLine Script-----------------------------
+" ColorScheme Setting--------------------------
+syntax enable
+set background=light
+colorscheme solarized
+
+" LightLine Setting-----------------------------
 let g:lightline = {
       \ 'colorscheme': 'wombat'
       \ }
+
+" End Script-----------------------------------
 
 "Encode
 set encoding=utf-8
@@ -49,6 +57,7 @@ set hidden
 set autoread
 set nobackup
 set noundofile
+set noswapfile
 
 "Windoows
 set clipboard=unnamed
