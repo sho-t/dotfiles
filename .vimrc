@@ -20,11 +20,13 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'Townk/vim-autoclose'
 
 " ColorScheme here
 NeoBundle 'altercation/vim-colors-solarized' 
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'tomasr/molokai'
+NeoBundle 'sjl/badwolf'
 
 call neobundle#end()
 
