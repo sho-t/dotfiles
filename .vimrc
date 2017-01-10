@@ -20,6 +20,7 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'Townk/vim-autoclose'
 
 " ColorScheme here
@@ -75,6 +76,7 @@ set shiftwidth=4
 "Cursor
 set whichwrap=b,s,h,l,<,>,[,],~
 set number
+set wrap
 set cursorline
 
 "Code
@@ -90,3 +92,25 @@ set laststatus=2
 set showmode
 set showcmd
 set ruler
+
+"KeyMap Setting--------------------------
+"It as Esc
+inoremap jj <Esc>
+
+"Off the highlight
+nmap <silent> <Esc><Esc> :nohlsearch<CR>
+
+"Bring the search word to the center of the screen
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+"Move with wrapped text
+nnoremap j gj
+nnoremap k gk
+
+"Select until the end of the line
+vnoremap v $h
