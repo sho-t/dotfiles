@@ -93,6 +93,10 @@ set showmode
 set showcmd
 set ruler
 
+"Visualbell
+set visualbell t_vb=
+set noerrorbells
+
 "KeyMap Setting--------------------------
 "It as Esc
 inoremap jj <Esc>
@@ -111,6 +115,10 @@ nnoremap g# g#zz
 "Move with wrapped text
 nnoremap j gj
 nnoremap k gk
+
+"Increment & Decrement
+nnoremap + <C-a>
+nnoremap - <C-x>
 
 "Select until the end of the line
 vnoremap v $h
