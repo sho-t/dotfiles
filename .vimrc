@@ -44,7 +44,12 @@ colorscheme solarized
 
 " LightLine Setting-----------------------------
 let g:lightline = {
-      \ 'colorscheme': 'solarized'
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"⭤":""}',
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
 
 " End Script-----------------------------------
