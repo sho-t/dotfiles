@@ -17,6 +17,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Yggdroot/indentLine'
@@ -43,10 +44,13 @@ colorscheme solarized
 
 " LightLine Setting-----------------------------
 let g:lightline = {
-      \ 'colorscheme': 'wombat'
+      \ 'colorscheme': 'solarized'
       \ }
 
 " End Script-----------------------------------
+
+"Font
+set guifont=Ricty\ for\ Powerline:h15
 
 "Encode
 set encoding=utf-8
