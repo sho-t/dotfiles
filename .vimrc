@@ -18,6 +18,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Yggdroot/indentLine'
@@ -47,20 +48,20 @@ let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitve', 'filename'] ]
+      \             [ 'fugitive', 'filename'] ]
       \ },
       \ 'component_function': {
-      \   'fugitive': "LightLineFugitive",
-      \   'readonly': "LightLinwReadonly",
-      \   'modified': "LightLineModified",
-      \   'filename': "LightLineFilename"
+      \   'fugitive': "MyFugitive",
+      \   'readonly': "MyReadonly",
+      \   'modified': "MyModified",
+      \   'filename': "MyFilename"
       \ },
       \ 'separator': { 'left': '⮀', 'right': '⮂' },
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
 
-function! LightLineModified()
-    if &filetye == "help"
+function! MyModified()
+    if &filetype == "help"
         return ""
     elseif &modified
         return "+"
@@ -69,7 +70,7 @@ function! LightLineModified()
     endif
 endfunction
 
-function! LightlineReadonly()
+function! MyReadonly()
     if &filetype == "help"
         return ""
     elseif &readonly
@@ -79,18 +80,18 @@ function! LightlineReadonly()
     endif
 endfunction
 
-function! LightlineFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
-    let branch = fugitive#head()
-    return branch !=# '' ? '⭠ '.branch : ''
-  endif
-  return ''
+function! MyFugitive()
+    if exists("*fugitive#head")
+        let branch = fugitive#head()
+        return branch !=# '' ? '⭠ '.branch : ''
+    endif
+    return ''
 endfunction
 
-function! LightlineFilename()
-  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+function! MyFilename()
+  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-       \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+       \ ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction
 
 " End Script-----------------------------------
