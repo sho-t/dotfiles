@@ -44,13 +44,54 @@ colorscheme solarized
 
 " LightLine Setting-----------------------------
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"⭤":""}',
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitve', 'filename'] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': "LightLineFugitive",
+      \   'readonly': "LightLinwReadonly",
+      \   'modified': "LightLineModified",
+      \   'filename': "LightLineFilename"
       \ },
       \ 'separator': { 'left': '⮀', 'right': '⮂' },
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
+
+function! LightLineModified()
+    if &filetye == "help"
+        return ""
+    elseif &modified
+        return "+"
+    else
+        return ""
+    endif
+endfunction
+
+function! LightlineReadonly()
+    if &filetype == "help"
+        return ""
+    elseif &readonly
+        return "⭤"
+    else
+        return ""
+    endif
+endfunction
+
+function! LightlineFugitive()
+  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+    let branch = fugitive#head()
+    return branch !=# '' ? '⭠ '.branch : ''
+  endif
+  return ''
+endfunction
+
+function! LightlineFilename()
+  return ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
+endfunction
 
 " End Script-----------------------------------
 
