@@ -43,6 +43,16 @@ syntax enable
 set background=light
 colorscheme solarized
 
+" Unite Setting---------------------------------
+" start insert mode
+let g:unite_enable_start_insert=1
+" buffer list
+noremap <C-P> :Unite buffer<CR>
+" file list
+noremap <C-N> :Unite -buffer-name=file file<CR>
+" file mru
+noremap <C-Z> :Unite file_mru<CR>
+
 " LightLine Setting-----------------------------
 let g:lightline = {
       \ 'colorscheme': 'solarized',
