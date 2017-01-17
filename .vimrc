@@ -44,8 +44,9 @@ set background=light
 colorscheme solarized
 
 " Unite Setting---------------------------------
-" start in insert mode
+let g:unite_source_file_mru_filename_format=''
 let g:unite_enable_start_insert=1
+
 " buffer list
 noremap <C-P> :Unite buffer<CR>
 " file list
@@ -64,9 +65,15 @@ au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 
 " Vimfiler Setting------------------------------
-call unite#custom_default_action('source/bookmark/)
+let g:vimfiler_as_default_explorer=1
+let g:vimfiler_safe_mode_by_default=0
+
+" Open filer
+noremap <silent> :tree :VimFiler -split -simple -winwidth=45 -no-quit
+noremap <C-X><C-T> :VimFiler -split -simple -winwidth=45 -no-quit<ENTER>
 
 " LightLine Setting-----------------------------
+
 let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
