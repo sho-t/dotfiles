@@ -44,7 +44,7 @@ set background=light
 colorscheme solarized
 
 " Unite Setting---------------------------------
-" start insert mode
+" start in insert mode
 let g:unite_enable_start_insert=1
 " buffer list
 noremap <C-P> :Unite buffer<CR>
@@ -62,6 +62,9 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vspli
 " <ESC> <ESC> = :q
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+
+" Vimfiler Setting------------------------------
+call unite#custom_default_action('source/bookmark/)
 
 " LightLine Setting-----------------------------
 let g:lightline = {
