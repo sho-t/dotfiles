@@ -1,4 +1,5 @@
 # PROMPT
+autoload -Uz colors
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' max-exports 6 # formatに入る変数の最大数
@@ -17,11 +18,10 @@ function vcs_echo {
     elif [[ -n `echo "$st" | grep "^Untracked"` ]]; then color=${fg[blue]} # untracked
     else color=${fg[cyan]}
     fi
-    echo "%{$color%}(%{$branch%})%{$reset_color%}" | sed -e s/@/"%F{yellow}@%f%{$color%}"/
+    echo "%{$color%}%{$branch%}%{$reset_color%}" | sed -e s/@/"%F{yellow}@%f%{$color%}"/
 }
 PROMPT='
-%F{yellow}%~%f `vcs_echo`
-%(?..%F{red}$%f) '
+%(?.%F{green}.%F{red})%f%F{red}%~%f `vcs_echo`$'
 
 # the fuck
 eval "$(thefuck --alias)"
