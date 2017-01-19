@@ -23,10 +23,3 @@ function vcs_echo {
 PROMPT='
 %(?.%F{green}.%F{red})%f%F{red}%~%f `vcs_echo`$'
 
-# the fuck
-eval "$(thefuck --alias)"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
