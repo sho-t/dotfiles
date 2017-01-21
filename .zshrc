@@ -1,10 +1,19 @@
+# COLORS
+autoload -U colors ; colors
+local DEFAULT="%{^[[0m%}"
+local RED="%{^[[38;5;001m%}"
+local MAGENTA="%{^[[38;5;201m%}"
+local BLUE="%{^[[38;5;004m%}"
+local CYAN="%{^[[38;5;014m%}"
+local GREEN="%{^[[38;5;048m%}"
+
 # PROMPT
 autoload -Uz colors
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:*' max-exports 6 # formatに入る変数の最大数
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' formats 'git(%b)' '%c' '%u'
+zstyle ':vcs_info:git:*' formats 'git:(%b)' '%c' '%u'
 zstyle ':vcs_info:git:*' actionformats '%b@%r|%a' '%c' '%u'
 setopt prompt_subst
 function vcs_echo {
