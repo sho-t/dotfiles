@@ -1,11 +1,11 @@
 ### Colors ###
 autoload -U colors ; colors
 local DEFAULT="%{[0m%}"
-local RED="%{[38;5;196m%}"
-local MAGENTA="%{[38;5;201m%}"
-local BLUE="%{[38;5;004m%}"
-local CYAN="%{[38;5;044m%}"
-local GREEN="%{[38;5;040m%}"
+local RED="%F{red}"
+local MAGENTA="%F{magenta}"
+local BLUE="%F{blue}"
+local CYAN="%F{cyan}"
+local GREEN="%F{green}"
 
 eval $(gdircolors ~/.dircolors-solarized)
 
@@ -23,7 +23,7 @@ zstyle ':vcs_info:git:*' actionformats '%F{blue}git:(%F{cyan}%b%c%u%f|%F{red}%a%
 
 precmd () { vcs_info }
 PROMPT='
-%(?.$GREEN.$RED) $MAGENTA%c$DEFAULT ${vcs_info_msg_0_}$DEFAULT ✘'
+%(?.$GREEN.$RED) $MAGENTA%c$DEFAULT ${vcs_info_msg_0_}$DEFAULT ✘ '
 
 ###Completion###
 autoload _U compinit
@@ -39,3 +39,11 @@ alias '..'='cd ..'
 alias -g ...='../..'
 alias -g ....='../../..'
 
+###Others###
+#the fuck
+eval "$(thefuck --alias)"
+
+#pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
