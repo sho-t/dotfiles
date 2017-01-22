@@ -1,4 +1,4 @@
-### COLORS ###
+### Colors ###
 autoload -U colors ; colors
 local DEFAULT="%{[0m%}"
 local RED="%{[38;5;196m%}"
@@ -7,9 +7,8 @@ local BLUE="%{[38;5;004m%}"
 local CYAN="%{[38;5;044m%}"
 local GREEN="%{[38;5;040m%}"
 
-### PROMPT ###
+### Prompt ###
 autoload -Uz vcs_info
-
 setopt prompt_subst
 
 zstyle ':vcs_info:*' enable git
@@ -24,3 +23,16 @@ precmd () { vcs_info }
 PROMPT='
 %(?.$GREEN.$RED) $MAGENTA%c$DEFAULT ${vcs_info_msg_0_}$DEFAULT ✘'
 
+###Completion###
+autoload _U compinit
+compinit -C
+
+setopt no_beep
+
+###Alias###
+alias ls='ls -G'
+alias la='ls -a'
+alias reload_zsh='source ~/.zshrc'
+alias '..'='cd ..'
+alias -g ...='../..'
+alias -g ....='../../..'
