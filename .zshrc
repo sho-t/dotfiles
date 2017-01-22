@@ -7,6 +7,8 @@ local BLUE="%{[38;5;004m%}"
 local CYAN="%{[38;5;044m%}"
 local GREEN="%{[38;5;040m%}"
 
+eval $(gdircolors ~/.dircolors-solarized)
+
 ### Prompt ###
 autoload -Uz vcs_info
 setopt prompt_subst
@@ -30,9 +32,10 @@ compinit -C
 setopt no_beep
 
 ###Alias###
-alias ls='ls -G'
+alias ls='gls --color=auto'
 alias la='ls -a'
 alias reload_zsh='source ~/.zshrc'
 alias '..'='cd ..'
 alias -g ...='../..'
 alias -g ....='../../..'
+
