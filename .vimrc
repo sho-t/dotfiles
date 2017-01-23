@@ -203,3 +203,11 @@ nnoremap - <C-x>
 
 "Select until the end of the line
 vnoremap v $h
+
+"Leader
+let maplender = "\<Space>"
+
+noremap <Leader>h ^
+noremap <Leader>l $
+noremap <Leader>w :w<CR>
+noremap <Leader>q :q<CR>
