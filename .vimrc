@@ -148,25 +148,29 @@ set clipboard=unnamed
 
 "Tab & Indent
 set expandtab
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 set autoindent
 set smartindent
-set shiftwidth=4
+set shiftwidth=2
 
 "Cursor
 set whichwrap=b,s,h,l,<,>,[,],~
 set number
-set wrap
+set nowrap
 set cursorline
 
 "Code
 set showmatch
+set matchpairs& matchpairs+=<:> 
 set smarttab
 
-"Command
+"System
 set wildmenu
-set history=5000
+set wildmode=list:longest,full
+set history=1000
+set infercase
+set virtualedit+=block  
 
 "StatusLine
 set laststatus=2
@@ -177,6 +181,13 @@ set ruler
 "Visualbell
 set visualbell t_vb=
 set noerrorbells
+
+"Search
+set ignorecase
+set smartcase
+set incsearch
+set wrapscan
+set hlsearch
 
 "KeyMap Setting--------------------------
 "It as Esc
@@ -205,7 +216,7 @@ nnoremap - <C-x>
 vnoremap v $h
 
 "Leader
-let maplender = "\<Space>"
+let mapleader = "\<Space>"
 
 noremap <Leader>h ^
 noremap <Leader>l $

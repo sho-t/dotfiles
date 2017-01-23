@@ -44,6 +44,8 @@ alias -g ...='../..'
 alias -g ....='../../..'
 
 ###Others###
+typeset -U path PATH
+
 #the fuck
 eval "$(thefuck --alias)"
 
