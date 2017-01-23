@@ -7,7 +7,11 @@ local BLUE="%F{blue}"
 local CYAN="%F{cyan}"
 local GREEN="%F{green}"
 
+#LS_COLORS
 eval $(gdircolors ~/.dircolors-solarized)
+if [ -n "$LS_COLORS" ]; then
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+fi
 
 ### Prompt ###
 autoload -Uz vcs_info
