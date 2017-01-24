@@ -33,6 +33,19 @@ PROMPT='
 autoload _U compinit
 compinit -C
 
+setopt auto_param_slash
+setopt mark_dirs
+setopt list_types
+setopt auto_menu
+setopt auto_param_keys
+setopt magic_equal_subst
+
+setopt always_last_prompt
+setopt complete_in_word
+setopt print_eight_bit
+setopt globdots
+setopt list_packed
+
 setopt no_beep
 
 ###Alias###
