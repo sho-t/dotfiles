@@ -66,3 +66,7 @@ eval "$(thefuck --alias)"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+#go
+export GOPATH=$HOME/.go
+export PATH=$HOME/.go/bin:$PATH
