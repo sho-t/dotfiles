@@ -40,6 +40,7 @@ NeoBundleCheck
 
 " ColorScheme Setting--------------------------
 syntax enable
+set t_Co=256
 set background=light
 colorscheme solarized
 
@@ -144,7 +145,7 @@ set noundofile
 set noswapfile
 
 "Windoows
-set clipboard=unnamed
+set clipboard+=unnamed
 
 "Tab & Indent
 set expandtab
