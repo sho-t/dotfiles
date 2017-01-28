@@ -48,6 +48,38 @@ setopt list_packed
 
 setopt no_beep
 
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
+zstyle ':completion:*:default' menu select=2
+
+zstyle ':completion:*' use-cache true
+zstyle ':completion:*' group-name ''
+
+###Cdr###
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+
+zstyle ':completion:*' recent-dirs-insert both
+zstyle ':chpwd:*' recent-dirs-max 500
+zstyle ':chpwd:*' recent-dirs-default true
+zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
+zstyle ':chpwd:*' recent-dirs-pushd true
+
+###History###
+HISTFILE=~/.zsh_histfile
+HISTSIZE=1000
+SAVEHIST=1000
+
+setopt share_history
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_save_no_dups
+setopt hist_reduce_blanks
+setopt hist_no_store
+setopt hist_verify
+setopt inc_append_history
+
 ###Alias###
 alias ls='gls --color=auto'
 alias la='ls -a'
