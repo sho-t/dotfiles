@@ -54,6 +54,8 @@ zstyle ':completion:*:default' menu select=2
 
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' group-name ''
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
 ###Cdr###
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
