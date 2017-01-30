@@ -38,6 +38,8 @@ setopt mark_dirs
 setopt list_types
 setopt auto_menu
 setopt auto_param_keys
+setopt correct
+setopt correct_all
 setopt magic_equal_subst
 
 setopt always_last_prompt
@@ -45,8 +47,8 @@ setopt complete_in_word
 setopt print_eight_bit
 setopt globdots
 setopt list_packed
-
-setopt no_beep
+setopt nolistbeep
+LISTMAX=0
 
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
@@ -68,7 +70,7 @@ zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
 ###History###
-HISTFILE=~/.zsh_histfile
+export HISTFILE=~/.zsh_histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
@@ -79,8 +81,12 @@ setopt hist_ignore_space
 setopt hist_save_no_dups
 setopt hist_reduce_blanks
 setopt hist_no_store
+setopt hist_expand
 setopt hist_verify
 setopt inc_append_history
+
+bindkey "^R" history-incremental-search-backward
+bindkey "^S" history-incremental-search-forward
 
 ###Alias###
 alias ls='gls --color=auto'
