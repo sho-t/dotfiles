@@ -151,9 +151,14 @@ set clipboard+=unnamed
 set expandtab
 set tabstop=2
 set softtabstop=2
+set shiftwidth=2
+
+" Input
+set backspace=indent,eol,start
+set formatoptions+=mM 
 set autoindent
 set smartindent
-set shiftwidth=2
+set imdisable
 
 "Cursor
 set whichwrap=b,s,h,l,<,>,[,],~
@@ -193,6 +198,7 @@ set hlsearch
 "KeyMap Setting--------------------------
 "It as Esc
 inoremap jj <Esc>
+inoremap <silent> っj <ESC>
 
 "Off the highlight
 nmap <silent> <Esc><Esc> :nohlsearch<CR>

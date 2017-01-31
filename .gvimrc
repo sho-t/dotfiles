@@ -8,8 +8,12 @@ set mouse=
 set nomousefocus
 set mousehide
 
+" menu
+set guioptions-=m
+set guioptions-=T
+
 " font
 if has('win32')
-    set guifont=@Migu_1M:h11
+    set guifont=Ricty_Diminished_for_PowerLine:h12
     set linespace=0
 endif
