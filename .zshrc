@@ -88,6 +88,11 @@ setopt inc_append_history
 bindkey "^R" history-incremental-search-backward
 bindkey "^S" history-incremental-search-forward
 
+###Smart-insert-last-word###
+autoload -Uz smart-insert-last-word
+
+zle -N insert-last-word smart-insert-last-word
+zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
 ###Alias###
 alias ls='gls --color=auto'
 alias la='ls -a'
