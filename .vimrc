@@ -196,6 +196,13 @@ set wrapscan
 set hlsearch
 
 "KeyMap Setting--------------------------
+"Yank
+noremap Y y$
+
+"VisualMode indent
+vnoremap < <gv
+vnoremap > >gv
+
 "It as Esc
 inoremap jj <Esc>
 inoremap <silent> っj <ESC>

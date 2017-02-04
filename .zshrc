@@ -112,6 +112,8 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
+#rbenv
+eval "$(rbenv init -)"
 #go
 export GOPATH=$HOME/.go
 export PATH=$HOME/.go/bin:$PATH
