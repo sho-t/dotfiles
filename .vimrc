@@ -236,3 +236,7 @@ noremap <Leader>h ^
 noremap <Leader>l $
 noremap <Leader>w :w<CR>
 noremap <Leader>q :q<CR>
+
+"autocmd Settting
+autocmd BufNewFile,BufRead *.rb nnoremap  :!ruby %
+autocmd BufNewFile,BufRead *.py nnoremap  :!python %
