@@ -19,6 +19,16 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
+NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'Yggdroot/indentLine'
@@ -72,6 +82,25 @@ let g:vimfiler_safe_mode_by_default=0
 " Open filer
 noremap <silent> :tree :VimFiler -split -simple -winwidth=45 -no-quit
 noremap <C-X><C-T> :VimFiler -split -simple -winwidth=45 -no-quit<ENTER>
+
+" Vimproc Setting------------------------------
+let g:quickrun_config = get(g:, 'quickrun_config', {})
+let g:quickrun_config._ = {
+      \ 'runner'    : 'vimproc',
+      \ 'runner/vimproc/updatetime' : 60,
+      \ 'outputter' : 'error',
+      \ 'outputter/error/success' : 'buffer',
+      \ 'outputter/error/error'   : 'quickfix',
+      \ 'outputter/buffer/split'  : ':rightbelow 8sp',
+      \ 'outputter/buffer/close_on_empty' : 1,
+      \ }
+
+au FileType qf nnoremap <silent><buffer>q :quit<CR>
+
+let g:quickrun_no_default_key_mappings = 1
+nnoremap \r :write<CR>:QuickRun -mode n<CR>        
+xnoremap \r :<C-U>write<CR>gv:QuickRun -mode v<CR> 
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 " LightLine Setting-----------------------------
 
@@ -236,7 +265,3 @@ noremap <Leader>h ^
 noremap <Leader>l $
 noremap <Leader>w :w<CR>
 noremap <Leader>q :q<CR>
-
-"autocmd Settting
-autocmd BufNewFile,BufRead *.rb nnoremap  :!ruby %
-autocmd BufNewFile,BufRead *.py nnoremap  :!python %
