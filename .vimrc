@@ -102,6 +102,13 @@ nnoremap \r :write<CR>:QuickRun -mode n<CR>
 xnoremap \r :<C-U>write<CR>gv:QuickRun -mode v<CR> 
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
+" VimShell Setting------------------------------
+nnoremap <silent> ,is :VimShell<CR>
+nnoremap <silent> ,ipy :VimShellInteractive python<CR>
+nnoremap <silent> ,irb :VimShellInteractive irb<CR>
+vnoremap <silent> ,ss :VimShellSendString<CR>
+nnoremap <silent> ,ss <S-v>:VimShellSendString<CR>
+
 " LightLine Setting-----------------------------
 
 let g:lightline = {
