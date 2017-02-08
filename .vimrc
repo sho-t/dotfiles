@@ -55,33 +55,61 @@ set background=light
 colorscheme solarized
 
 " Unite Setting---------------------------------
+"unite prefix key.
+nnoremap [unite] <Nop>
+nmap <Space>u [unite]
+
 let g:unite_source_file_mru_filename_format=''
-let g:unite_enable_start_insert=1
+let g:unite_enable_start_insert=0
 
-" buffer list
-noremap <C-P> :Unite buffer<CR>
-" file list
-noremap <C-N> :Unite -buffer-name=file file<CR>
-" file mru
-noremap <C-Z> :Unite file_mru<CR>
+let g:unite_source_bookmark_directory = $HOME . '/.unite/bookmark'
+ 
+" filelist
+nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+" bufferlist
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+" registerlist
+nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
+" mrulist
+nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+" bookmarklist
+nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
+" add bookmark
+nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
 
-" <Ctrl + J> = split
-au FileType unite nnoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
-au FileType unite inoremap <silent> <buffer> <expr> <C-J> unite#do_action('split')
-" <Ctrl + K> = vsprit
-au FileType unite nnoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
-au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vsplit')
-" <ESC> <ESC> = :q
-au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
+augroup vimrc
+  autocmd FileType unite call s:unite_my_settings()
+augroup END
+function! s:unite_my_settings()
+  nmap <buffer> <ESC> <Plug>(unite_exit)
+  imap <buffer> jj <Plug>(unite_insert_leave)
+  imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
+  "split
+  nnoremap <silent><buffer><expr> s unite#smart_map('s', unite#do_action('split'))
+  inoremap <silent><buffer><expr> s unite#smart_map('s', unite#do_action('split'))
+  "vsplit
+  nnoremap <silent><buffer><expr> v unite#smart_map('v', unite#do_action('vsplit'))
+  inoremap <silent><buffer><expr> v unite#smart_map('v', unite#do_action('vsplit'))
+  "vimfiler
+  nnoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
+  inoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
+endfunction
 
 " Vimfiler Setting------------------------------
 let g:vimfiler_as_default_explorer=1
 let g:vimfiler_safe_mode_by_default=0
 
-" Open filer
-noremap <silent> :tree :VimFiler -split -simple -winwidth=45 -no-quit
-noremap <C-X><C-T> :VimFiler -split -simple -winwidth=45 -no-quit<ENTER>
+nnoremap <silent> <Space>fe :<C-u>VimFilerBufferDir -quit<CR>
+nnoremap <silent> <Space>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
+ 
+" vimfiler keymap
+augroup vimrc
+  autocmd FileType vimfiler call s:vimfiler_my_settings()
+augroup END
+function! s:vimfiler_my_settings()
+  nmap <buffer> q <Plug>(vimfiler_exit)
+  nmap <buffer> Q <Plug>(vimfiler_hide)
+endfunction
 
 " Vimproc Setting------------------------------
 let g:quickrun_config = get(g:, 'quickrun_config', {})
@@ -265,10 +293,8 @@ nnoremap - <C-x>
 "Select until the end of the line
 vnoremap v $h
 
-"Leader
-let mapleader = "\<Space>"
-
-noremap <Leader>h ^
-noremap <Leader>l $
-noremap <Leader>w :w<CR>
-noremap <Leader>q :q<CR>
+"Space
+noremap <Space>h ^
+noremap <Space>l $
+noremap <Space>w :w<CR>
+noremap <Space>q :q<CR>
