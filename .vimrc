@@ -72,6 +72,10 @@ nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
 " mrulist
 nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+" dirmrulist
+nnoremap <silent> [unite]d :<C-u>Unite directory_mru<CR>
+" yankhistory
+nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
 " bookmarklist
 nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
 " add bookmark
@@ -273,6 +277,12 @@ inoremap <silent> っj <ESC>
 
 "Off the highlight
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
+
+" Delete option 
+nnoremap dh d0
+nnoremap dl d$
+noremap PP "0p
+noremap x "_x
 
 "Bring the search word to the center of the screen
 nnoremap n nzz
