@@ -1,6 +1,6 @@
 " display & infomation
-set lines=30
-set columns=90
+set lines=50
+set columns=100
 set cmdheight=1
 
 " mouse
@@ -14,6 +14,6 @@ set guioptions-=T
 
 " font
 if has('win32')
-    set guifont=Ricty_Diminished_for_PowerLine:h12
+    set guifont=Consolas_for_Powerline_FixedD:h10:i:cANSI:qDRAFT
     set linespace=0
 endif
