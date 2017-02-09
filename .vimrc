@@ -142,6 +142,12 @@ nnoremap <silent> ,irb :VimShellInteractive irb<CR>
 vnoremap <silent> ,ss :VimShellSendString<CR>
 nnoremap <silent> ,ss <S-v>:VimShellSendString<CR>
 
+" Neocomplete Setting---------------------------
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#disable_auto_complete = 1
+let g:neocomplete#enable_auto_select = 1
+inoremap <expr><C-Space> pumvisible() ? "\<down>" : neocomplete#start_manual_complete()
+
 " LightLine Setting-----------------------------
 
 let g:lightline = {
