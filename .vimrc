@@ -17,6 +17,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/vimproc.vim', {
