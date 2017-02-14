@@ -151,6 +151,18 @@ let g:neocomplete#disable_auto_complete = 1
 let g:neocomplete#enable_auto_select = 1
 inoremap <expr><C-Space> pumvisible() ? "\<down>" : neocomplete#start_manual_complete()
 
+" Rsense Setting
+ if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
+augroup vimrc
+  autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+augroup END
+let g:rsenseHome = expand("/Users/sho/.rbenv/shims/rsense")
+let g:rsenseUseOmniFunc = 1
+
 " LightLine Setting-----------------------------
 
 let g:lightline = {
