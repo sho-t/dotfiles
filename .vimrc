@@ -160,7 +160,8 @@ let g:neocomplete#enable_quick_match = 1
 let g:neocomplete#sources#dictionary#dictionaries = {
     \ 'default' : '',
     \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
+    \ 'scheme' : $HOME.'/.gosh_completions',
+    \ 'ruby' : $HOME.'/.ghq/github.com/pocke/dicts'
         \ }
 
 " Define keyword.
@@ -210,7 +211,7 @@ autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-let g:neocomplete#omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+"let g:neocomplete#omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
