@@ -54,7 +54,7 @@ NeoBundleCheck
 " ColorScheme Setting--------------------------
 syntax enable
 set t_Co=256
-set background=light
+set background=dark
 colorscheme solarized
 
 " Unite Setting---------------------------------
@@ -194,15 +194,6 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
 
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -217,6 +208,25 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 endif
 let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
 
+" Neosnippet Setting----------------------------
+let g:neosnippet#snippets_directory='~/.vim/snippets/'
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+ 
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+ 
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
 " LightLine Setting-----------------------------
 
 let g:lightline = {
@@ -340,6 +350,8 @@ set wrapscan
 set hlsearch
 
 "KeyMap Setting--------------------------
+noremap : ;
+
 "Yank
 noremap Y y$
 
@@ -384,3 +396,7 @@ noremap <Space>h ^
 noremap <Space>l $
 noremap <Space>w :w<CR>
 noremap <Space>q :q<CR>
+
+"Jump to corresponding parenthesis
+nnoremap <Tab> %
+vnoremap <Tab> %
