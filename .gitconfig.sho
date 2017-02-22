@@ -1,0 +1,13 @@
+
+[alias]
+  rename = branch -m
+  newbranch = checkout -b
+  me = config --get-regexp user
+  aliases = config --get-regexp alias
+  branches = branch -a
+  stashes = stash list
+  remotes = remote -v
+  amend = commit --amend
+  back = checkout "-"
+  rename = branch -m
+  graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset? %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
