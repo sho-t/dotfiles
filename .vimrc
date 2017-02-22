@@ -350,7 +350,7 @@ set wrapscan
 set hlsearch
 
 "KeyMap Setting--------------------------
-noremap : ;
+noremap ; :
 
 "Yank
 noremap Y y$
@@ -400,3 +400,19 @@ noremap <Space>q :q<CR>
 "Jump to corresponding parenthesis
 nnoremap <Tab> %
 vnoremap <Tab> %
+
+"Winddow Option
+nnoremap s <Nop>
+"new
+nnoremap sn :<C-u>new
+nnoremap sv :<C-u>vne
+
+"move
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
+nnoremap sJ <C-w>J
+nnoremap sK <C-w>K
+nnoremap sL <C-w>L
+noremap sH <C-w>H
