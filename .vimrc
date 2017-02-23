@@ -109,6 +109,9 @@ let g:vimfiler_as_default_explorer=1
 let g:vimfiler_safe_mode_by_default=0
 let g:vimfiler_ignore_pattern = '^\%(.git\|.DS_Store\)$'
 
+let g:vimfiler_tree_leaf_icon = ' '
+let g:vimfiler_file_icon = '-'
+let g:vimfiler_marked_file_icon = '*'
 nnoremap <silent> <Space>fe :<C-u>VimFilerBufferDir -quit<CR>
 nnoremap <silent> <Space>fi :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
  
@@ -299,6 +302,7 @@ set noundofile
 set noswapfile
 
 "Windoows
+set splitright
 set clipboard+=unnamed
 
 "Tab & Indent
