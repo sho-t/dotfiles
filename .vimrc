@@ -65,7 +65,7 @@ nmap <Space>u [unite]
 let g:unite_source_file_mru_filename_format=''
 let g:unite_enable_start_insert=0
 
-let g:unite_source_bookmark_directory = $HOME . '/.unite/bookmark'
+let g:unite_source_bookmark_directory = $HOME . '/.vim/.unite/bookmark'
  
 " Grepping using <space>/
 nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
@@ -215,7 +215,7 @@ endif
 let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
 
 " Neosnippet Setting----------------------------
-let g:neosnippet#snippets_directory='~/.vim/snippets/'
+let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/,~/.vim/snippets'
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
