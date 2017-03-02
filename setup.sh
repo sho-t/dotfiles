@@ -1,9 +1,23 @@
 #!/bin/bash
+
+set -u
+
 cd $(dirname $0)
-for dotfile in .?*
+
+echo "start setup..."
+for dotfile in .??*
 do
-    if [ $dotfile != '..' ] && [ $dotfile != '.git' ]
-    then
-        ln -Fis "$PWD/$dotfile" $HOME
-    fi
+  [ "$dotfile" = ".git" ] && continue
+  [ "$dotfile" = ".gitmodules" ] && continue
+  [ "$dotfile" = ".gitignore" ] && continue
+
+  ln -Fis "$PWD/$dotfile" $HOME
 done
+
+cat << END
+
+**************************************************
+DOTFILES SETUP FINISHED! bye.
+**************************************************
+
+END
