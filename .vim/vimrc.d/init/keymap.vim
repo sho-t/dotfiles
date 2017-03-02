@@ -7,8 +7,11 @@ inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
-"Yank
-noremap Y y$
+"Yank & Paste
+noremap <silent> Y y$
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
 
 "VisualMode indent
 vnoremap < <gv
