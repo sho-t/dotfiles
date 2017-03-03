@@ -1,0 +1,37 @@
+#======================
+# basic
+#======================
+[[plugins]]
+name = 'basic/unite'
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+name = 'basic/neomru'
+repo = 'Shougo/neomru.vim'
+depends = ['unite']
+
+[[plugins]]
+name = 'basic/neocomplete'
+repo = 'Shougo/neocomplete.vim'
+
+[[plugins]]
+name = 'basic/neosnippet'
+repo = 'Shougo/neosnippet'
+
+[[plugins]]
+name = 'basic/neosnippet-snippets''
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+name = 'basic/vimfiler'
+repo = 'Shougo/vimfiler'
+
+[[plugins]]
+name = 'basic/vimshell'
+repo = 'Shougo/vimshell.vim'
+
+[[plugins]]
+name = 'basic/vimproc'
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
