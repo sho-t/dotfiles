@@ -2,36 +2,50 @@
 # basic
 #======================
 [[plugins]]
-name = 'basic/unite'
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+name = 'unite'
 repo = 'Shougo/unite.vim'
 
 [[plugins]]
-name = 'basic/neomru'
+name = 'neomru'
 repo = 'Shougo/neomru.vim'
 depends = ['unite']
 
 [[plugins]]
-name = 'basic/neocomplete'
+name = 'neocomplete'
 repo = 'Shougo/neocomplete.vim'
 
 [[plugins]]
-name = 'basic/neosnippet'
+name = 'neosnippet'
 repo = 'Shougo/neosnippet'
 
 [[plugins]]
-name = 'basic/neosnippet-snippets''
+name = 'neosnippet-snippets'
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-name = 'basic/vimfiler'
+name = 'vimfiler'
 repo = 'Shougo/vimfiler'
 
 [[plugins]]
-name = 'basic/vimshell'
+name = 'vimshell'
 repo = 'Shougo/vimshell.vim'
 
 [[plugins]]
-name = 'basic/vimproc'
+name = 'vimproc'
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 
+[[plugins]]
+name = 'quickrun'
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+name = 'lightline'
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+name = 'fugitive'
+repo = 'tpope/vim-fugitive'
