@@ -45,3 +45,18 @@ repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+#======================
+# colorscheme
+#======================
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'sjl/badwolf'
