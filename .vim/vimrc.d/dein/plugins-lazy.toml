@@ -1,3 +1,10 @@
 ####################
 ##dein lazy setting
 ####################
+[[plugins]]
+repo = "davidhalter/jedi-vim"
+on_ft = ['python']
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']

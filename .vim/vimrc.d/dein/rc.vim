@@ -30,10 +30,6 @@ endif
 call dein#begin(s:dein_path)
 call dein#load_toml('~/.vim/vimrc.d/dein/plugins.toml', {'lazy': 0})
 call dein#load_toml('~/.vim/vimrc.d/dein/plugins-lazy.toml', {'lazy': 1})
-for plugin_name in keys(dein#get())
-    let s:plugin = dein#get(plugin_name)
-    let s:plugin['hook_add'] = "source ~/.vim/vimrc.d/plugins/" . plugin_name
-endfor
 call dein#end()
 
 if dein#check_install()

@@ -5,43 +5,44 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-name = 'unite.vim'
 repo = 'Shougo/unite.vim'
+hook_add = 'source ~/.vim/vimrc.d/plugins/unite.vim'
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'
 depends = ['unite']
 
 [[plugins]]
-name = 'neocomplete.vim'
 repo = 'Shougo/neocomplete.vim'
+hook_add = 'source ~/.vim/vimrc.d/plugins/neocomplete.vim'
+on_i = ['1']
 
 [[plugins]]
-name = 'neosnippet.vim'
 repo = 'Shougo/neosnippet'
+hook_add = 'source ~/.vim/vimrc.d/plugins/neosnippet.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-name = 'vimfiler.vim'
 repo = 'Shougo/vimfiler'
+hook_add = 'source ~/.vim/vimrc.d/plugins/vimfiler.vim'
 
 [[plugins]]
-name = 'vimshell.vim'
 repo = 'Shougo/vimshell.vim'
+hook_add = 'source ~/.vim/vimrc.d/plugins/vimshell.vim'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 [[plugins]]
-name = 'quickrun.vim'
 repo = 'thinca/vim-quickrun'
+hook_add = 'source ~/.vim/vimrc.d/plugins/quickrun.vim'
 
 [[plugins]]
-name = 'lightline.vim'
 repo = 'itchyny/lightline.vim'
+hook_add = 'source ~/.vim/vimrc.d/plugins/lightline.vim'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
