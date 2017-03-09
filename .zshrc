@@ -29,6 +29,7 @@ precmd () { vcs_info }
 PROMPT='
 %(?.$GREEN.$RED) $MAGENTA%c$DEFAULT ${vcs_info_msg_0_}$DEFAULT ✘ '
 
+SPROMPT="$MAGENTA%{$suggest%}(*'~'%)? $BLUE< もしかして$CYAN%B%r%b $BLUEかな? [そう!(y), 違う!(n),a,e]:$DEFAULT "
 ###Completion###
 autoload _U compinit
 compinit -C
