@@ -4,6 +4,7 @@
 [[plugins]]
 repo = "davidhalter/jedi-vim"
 on_ft = ['python']
+build = 'git submodule update --init'
 
 [[plugins]]
 repo = 'fatih/vim-go'

@@ -115,10 +115,13 @@ eval "$(thefuck --alias)"
 #pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if builtin type pyenv >/dev/null 2>&1; then 
+  eval "$(pyenv init -)";
+fi
 
 #rbenv
 eval "$(rbenv init -)"
+
 #go
 export GOPATH=$HOME/.go
 export PATH=$HOME/.go/bin:$PATH
