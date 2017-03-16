@@ -46,6 +46,7 @@ hook_add = 'source ~/.vim/vimrc.d/plugins/lightline.vim'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+hook_add = 'source ~/.vim/vimrc.d/plugins/fugitive.vim'
 
 #======================
 # colorscheme

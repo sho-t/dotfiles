@@ -9,7 +9,7 @@ let g:unite_enable_start_insert=0
 let g:unite_source_bookmark_directory = $HOME . '/.vim/.unite/bookmark'
  
 " Grepping using <space>/
-nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
+nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<CR>
 " filelist
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " bufferlist
