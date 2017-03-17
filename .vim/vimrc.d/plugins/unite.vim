@@ -5,6 +5,8 @@ nmap <Space>u [unite]
 
 let g:unite_source_file_mru_filename_format=''
 let g:unite_enable_start_insert=0
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
 
 let g:unite_source_bookmark_directory = $HOME . '/.vim/.unite/bookmark'
  
@@ -20,8 +22,6 @@ nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 " dirmrulist
 nnoremap <silent> [unite]d :<C-u>Unite directory_mru<CR>
-" yankhistory
-nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
 " bookmarklist
 nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
 " add bookmark
