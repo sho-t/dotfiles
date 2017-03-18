@@ -35,3 +35,12 @@ call dein#end()
 if dein#check_install()
   call dein#install()
 endif
+
+function! s:deinClean()
+  if len(dein#check_clean())
+    call map(dein#check_clean(), 'delete(v:val, "rf")')
+  else
+    echo '[ERR] no disabled plugins'
+  endif
+endfunction
+command! DeinClean :call s:deinClean()
