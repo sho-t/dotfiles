@@ -27,7 +27,8 @@ nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
 " add bookmark
 nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
 
-augroup vimrc
+augroup unite_cmd
+  autocmd!
   autocmd FileType unite call s:unite_my_settings()
 augroup END
 function! s:unite_my_settings()

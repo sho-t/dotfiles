@@ -9,3 +9,7 @@ build = 'git submodule update --init'
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = ['go']
+
+[[plugins]]
+repo = 'todesking/ruby_hl_lvar.vim'
+on_ft = ['ruby']

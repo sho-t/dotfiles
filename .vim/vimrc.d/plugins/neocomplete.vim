@@ -3,59 +3,59 @@
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#enable_underbar_completion = 1
+let g:neocomplete#enable_camel_case_completion = 1
 let g:neocomplete#enable_quick_match = 1
+
+let g:neocomplete#max_list = 50
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#max_keyword_width = 80
+let g:neocomplete#enable_ignore_case = 1
 
 let g:neocomplete#enable_fuzzy_completion = 1
 let g:neocomplete_enable_fuzzy_completion_start_length = 2
 let g:neocomplete_enable_camel_case_completion = 0
 let g:neocomplete#enable_auto_delimiter = 1
 
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions',
-    \ 'ruby' : $HOME.'/.ghq/github.com/pocke/dicts'
-        \ }
+" preview window を閉じない
+let g:neocomplete#enable_auto_close_preview = 0
+augroup my_neocomplete_conf
+  autocmd!
+  autocmd insertleave * silent! pclose!
+augroup end
 
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+highlight Pmenu ctermbg=6
+highlight PmenuSel ctermbg=3
+highlight PMenuSbar ctermbg=0
+"inoremap <expr><CR>  pumvisible() ? neocomplete#close_popup() : “<CR>”
+
+let g:neocomplete#max_keyword_width = 10000
+
+if !exists('g:neocomplete#delimiter_patterns')
+  let g:neocomplete#delimiter_patterns= {}
 endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+let g:neocomplete#delimiter_patterns.ruby = ['::']
 
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+if !exists('g:neocomplete#same_filetypes')
+  let g:neocomplete#same_filetypes = {}
 endif
-let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+let g:neocomplete#same_filetypes.ruby = 'eruby'
+
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+let g:neocomplete#force_omni_input_patterns.typescript = '[^. \t]\.\%(\h\w*\)\?' " Same as JavaScript
+let g:neocomplete#force_omni_input_patterns.go = '[^. \t]\.\%(\h\w*\)\?'         " Same as JavaScript
+let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+
+let s:neco_dicts_dir = $HOME . '/dicts'
+if isdirectory(s:neco_dicts_dir)
+  let g:neocomplete#sources#dictionary#dictionaries = {
+  \   'ruby': s:neco_dicts_dir . '/ruby.dict',
+  \   'javascript': s:neco_dicts_dir . '/jquery.dict',
+  \ }
+endif
+let g:neocomplete#data_directory = $HOME . '/.vim/cache/neocomplete'

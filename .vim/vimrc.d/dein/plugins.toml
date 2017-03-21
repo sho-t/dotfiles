@@ -46,6 +46,13 @@ repo = 'thinca/vim-quickrun'
 hook_add = 'source ~/.vim/vimrc.d/plugins/quickrun.vim'
 
 [[plugins]]
+repo = 'osyo-manga/unite-quickfix'
+depends = ['unite']
+
+[[plugins]]
+repo = 'osyo-manga/shabadou.vim'
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = 'source ~/.vim/vimrc.d/plugins/lightline.vim'
 
