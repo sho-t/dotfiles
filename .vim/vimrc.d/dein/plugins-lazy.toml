@@ -1,6 +1,12 @@
 ####################
 ##dein lazy setting
 ####################
+
+[[plugins]]
+repo = 'AndrewRadev/switch.vim'
+on_i = 1
+hook_add = 'source ~/.vim/vimrc.d/plugins/switch.vim'
+
 [[plugins]]
 repo = "davidhalter/jedi-vim"
 on_ft = ['python']
