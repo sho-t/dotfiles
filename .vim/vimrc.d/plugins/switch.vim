@@ -32,7 +32,7 @@ let s:switch_definition = {
       \   ['.map', '.map!'],
       \   ['attr_accessor', 'attr_reader', 'attr_writer'],
       \ ],
-      \ 'Gemfile,Berksfile' : [
+      \ 'gemfile,berksfile' : [
       \   ['=', '<', '<=', '>', '>=', '~>'],
       \ ],
       \ 'ruby.application_template' : [
@@ -41,7 +41,7 @@ let s:switch_definition = {
       \   ['controller', 'model', 'view', 'migration', 'scaffold'],
       \ ],
       \ 'erb,html,php' : [
-      \   { '<!--\([a-zA-Z0-9 /]\+\)--></\(div\|ul\|li\|a\)>' : '</\2><!--\1-->' },
+      \   { '<!--\([a-za-z0-9 /]\+\)--></\(div\|ul\|li\|a\)>' : '</\2><!--\1-->' },
       \ ],
       \ 'rails' : [
       \   [100, ':continue', ':information'],
@@ -137,12 +137,12 @@ function! s:define_switch_mappings() "{{{
     let dictionary = extend(dictionary, s:switch_definition['*'])
   endif
 
-  if !empty('dictionary')
-    call alpaca#let_b:('switch_custom_definitions', dictionary)
-  endif
+ " if !empty('dictionary')
+ "   call alpaca#let_b:('switch_custom_definitions', dictionary)
+ " endif
 endfunction"}}}
 
-"augroup SwitchSetting
-"  autocmd!
-"  autocmd Filetype * if !empty(split(&ft, '\.')) | call <SID>define_switch_mappings() | endif
-"augroup END
+augroup SwitchSetting
+  autocmd!
+  autocmd Filetype * if !empty(split(&ft, '\.')) | call <SID>define_switch_mappings() | endif
+augroup END
