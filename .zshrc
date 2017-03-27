@@ -1,3 +1,9 @@
+# Set the zsh root directoy
+#export ZSH_ROOT=$HOME/.zsh
+
+# Only run if tmux is actually installed.
+#hash tmux 2>/dev/null && source "$ZSH_ROOT/functions/tmux.zsh"
+
 ### Colors ###
 autoload -U colors ; colors
 local DEFAULT="%{[0m%}"

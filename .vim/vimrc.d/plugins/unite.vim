@@ -10,7 +10,7 @@ let g:unite_enable_smart_case = 1
 
 let g:unite_source_bookmark_directory = $HOME . '/.vim/.unite/bookmark'
  
-" Grepping using <space>/
+" Grepping
 nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<CR>
 " filelist
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
