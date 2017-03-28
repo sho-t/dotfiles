@@ -12,12 +12,12 @@ let g:unite_source_bookmark_directory = $HOME . '/.vim/.unite/bookmark'
  
 " Grepping
 nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<CR>
+" Git dirsearch
+nnoremap <silent> [unite]g :<C-u>Unite file_rec/async:!<CR>
 " filelist
 nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " bufferlist
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-" registerlist
-nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
 " mrulist
 nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 " dirmrulist

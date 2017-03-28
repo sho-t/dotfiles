@@ -62,7 +62,7 @@ hook_add = 'source ~/.vim/vimrc.d/plugins/fugitive.vim'
 
 [[plugins]]
 repo = 'tpope/vim-rails'
-
+hook_add = 'source ~/.vim/vimrc.d/plugins/unite-rails.vim'
 #======================
 # colorscheme
 #======================
