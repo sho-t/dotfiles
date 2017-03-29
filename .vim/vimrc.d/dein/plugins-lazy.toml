@@ -28,3 +28,9 @@ on_i = 1
 [[plugins]]
 repo = 'basyura/unite-rails'
 depends = ['unite']
+hook_add = 'source ~/.vim/vimrc.d/plugins/unite-rails.vim'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown','mkd']
+hook_add = 'source ~/.vim/vimrc.d/plugins/vim-markdown.vim'
