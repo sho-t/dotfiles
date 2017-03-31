@@ -27,10 +27,6 @@ nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
 " add bookmark
 nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
 
-augroup unite_cmd
-  autocmd!
-  autocmd FileType unite call s:unite_my_settings()
-augroup END
 function! s:unite_my_settings()
   nmap <buffer> <ESC> <Plug>(unite_exit)
   imap <buffer> jj <Plug>(unite_insert_leave)
@@ -46,3 +42,7 @@ function! s:unite_my_settings()
   inoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
 endfunction
 
+augroup unite_cmd
+  autocmd!
+  autocmd FileType unite call s:unite_my_settings()
+augroup END
