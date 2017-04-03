@@ -34,3 +34,7 @@ hook_add = 'source ~/.vim/vimrc.d/plugins/unite-rails.vim'
 repo = 'plasticboy/vim-markdown'
 on_ft = ['markdown','mkd']
 hook_add = 'source ~/.vim/vimrc.d/plugins/vim-markdown.vim'
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = ['javascript']
