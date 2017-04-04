@@ -109,8 +109,12 @@ alias ls='gls --color=auto'
 alias la='ls -a'
 alias reload_zsh='source ~/.zshrc'
 alias '..'='cd ..'
-alias -g ...='../..'
+alias -g ...='/..'
 alias -g ....='../../..'
+alias -g L='| less'
+alias -g H='| head'
+alias -g G='| grep'
+alias -g GI='| grep -ri'
 
 ###Others###
 typeset -U path PATH
@@ -131,3 +135,6 @@ eval "$(rbenv init -)"
 #go
 export GOPATH=$HOME/.go
 export PATH=$HOME/.go/bin:$PATH
+
+#node
+export PATH=$HOME/.nodebrew/current/bin:$PATH
