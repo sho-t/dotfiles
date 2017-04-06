@@ -26,8 +26,8 @@ setopt prompt_subst
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' max-exports 6
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr ' ✚'
-zstyle ':vcs_info:git:*' unstagedstr ' ✱'
+zstyle ':vcs_info:git:*' stagedstr ' ✚ '
+zstyle ':vcs_info:git:*' unstagedstr ' ✱ '
 zstyle ':vcs_info:git:*' formats '%F{blue}git:(%F{cyan}%b%c%u%F{blue})'
 zstyle ':vcs_info:git:*' actionformats '%F{blue}git:(%F{cyan}%b%c%u%f|%F{red}%a%F{blue})'
 
@@ -76,6 +76,12 @@ zstyle ':chpwd:*' recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
+###cd###
+setopt auto_cd
+cdpath=(~)
+setopt auto_pushd
+setopt pushd_ignore_dups
+
 ###History###
 export HISTFILE=~/.zsh_histfile
 HISTSIZE=1000
@@ -105,16 +111,23 @@ export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
 
-alias ls='gls --color=auto'
-alias la='ls -a'
+alias ls='gls --color=auto -a'
 alias reload_zsh='source ~/.zshrc'
 alias '..'='cd ..'
-alias -g ...='/..'
+alias -g ...='../..'
 alias -g ....='../../..'
+
 alias -g L='| less'
 alias -g H='| head'
 alias -g G='| grep'
 alias -g GI='| grep -ri'
+
+alias copy='| pbcopy'
+alias mkdir='mkdir -p'
+
+ # Git alias
+alias gitconfig='vim ~/.gitconfig'
+alias branch\?='git branch |grep'
 
 ###Others###
 typeset -U path PATH
