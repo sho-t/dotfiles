@@ -16,7 +16,8 @@ let g:lightline = {
       \   'fugitive': "MyFugitive",
       \   'readonly': "MyReadonly",
       \   'modified': "MyModified",
-      \   'filename': "MyFilename"
+      \   'filename': "MyFilename",
+      \   'ale': 'MyAleStatus'
       \ },
       \ 'separator': { 'left': '⮀', 'right': '⮂' },
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
@@ -56,3 +57,6 @@ function! MyFilename()
        \ ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction
 
+function! MyAleStatus()
+  return ALEGetStatusLine()
+endfunction
