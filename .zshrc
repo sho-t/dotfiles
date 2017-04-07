@@ -1,3 +1,6 @@
+# LANG
+export LANG=ja_JP.UTF-8
+
 # Set the zsh root directoy
 #export ZSH_ROOT=$HOME/.zsh
 
