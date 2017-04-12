@@ -17,7 +17,7 @@ let g:lightline = {
       \   'readonly': "MyReadonly",
       \   'modified': "MyModified",
       \   'filename': "MyFilename",
-      \   'ale': 'MyAleStatus'
+      \   'ale': "MyAleStatus"
       \ },
       \ 'separator': { 'left': '⮀', 'right': '⮂' },
       \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
