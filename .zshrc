@@ -154,3 +154,5 @@ export PATH=$HOME/.go/bin:$PATH
 
 #node
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+# Only run if npm is actually installed.
+hash nmp 2>/dev/null && source "$ZSH_ROOT/node.zsh"
