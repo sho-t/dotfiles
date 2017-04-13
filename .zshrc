@@ -2,7 +2,7 @@
 export LANG=ja_JP.UTF-8
 
 # Set the zsh root directoy
-#export ZSH_ROOT=$HOME/.zsh
+export ZSH_ROOT=$HOME/.zsh
 
 # Only run if tmux is actually installed.
 #hash tmux 2>/dev/null && source "$ZSH_ROOT/functions/tmux.zsh"
@@ -155,4 +155,4 @@ export PATH=$HOME/.go/bin:$PATH
 #node
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 # Only run if npm is actually installed.
-hash nmp 2>/dev/null && source "$ZSH_ROOT/node.zsh"
+hash npm 2>/dev/null && source "$ZSH_ROOT/node.zsh"
