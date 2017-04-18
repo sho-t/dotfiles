@@ -68,6 +68,8 @@ hook_add = 'source ~/.vim/vimrc.d/plugins/vim-rails.vim'
 repo = 'w0rp/ale'
 hook_add = 'source ~/.vim/vimrc.d/plugins/ale.vim'
 
+[[plugins]]
+repo = 'tpope/vim-surround'
 #======================
 # colorscheme
 #======================

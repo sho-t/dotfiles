@@ -8,8 +8,7 @@ let g:ale_echo_msg_format = '[%linter%] %s'
 let g:ale_linters = {
       \ 'html': [],
       \ 'css': ['stylelint'],
-      \ 'javascript': ['eslint'],
-      \ 'vue': ['eslint']
+      \ 'javascript': ['eslint']
       \ }
 
 let g:ale_set_loclist = 0
