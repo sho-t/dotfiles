@@ -66,3 +66,8 @@ set smartcase
 set incsearch
 set wrapscan
 set hlsearch
+
+augroup Vimrc
+  autocmd!
+  autocmd QuickFixCmdPost *grep* cwindow
+augroup END
