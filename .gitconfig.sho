@@ -1,3 +1,5 @@
+[commit]
+  template = ~/.commit_template
 
 [alias]
   rename = branch -m
