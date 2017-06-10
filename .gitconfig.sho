@@ -1,5 +1,5 @@
 [commit]
-  template = ~/.commit_template
+  template = ~/.gitmessage
 
 [alias]
   rename = branch -m
