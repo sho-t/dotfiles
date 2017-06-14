@@ -1,4 +1,3 @@
-
 filetype plugin indent off
 
 runtime! vimrc.d/init/*.vim
