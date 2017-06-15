@@ -1,0 +1,24 @@
+#======================
+# basic
+#======================
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = 'source ~/.config/nvim/vimrc.d/plugins/lightline.vim'
+
+#======================
+# colorscheme
+#======================
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'sjl/badwolf'
