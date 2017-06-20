@@ -1,19 +1,23 @@
 
 
 # ==== Emojis ====
-# ⭐️	:star: New Feature
-# 🐛  :bug: Bugfix
-# ✨  :sparkles: Improvement
-# 🎉  :tada: Release
-# ♻️   :recycle: Refactoring
-# 🚿  :shower: Remove longer-used-function
-# ✅	:white_check_mark: Add tests
-# 💚  :green_heart: Fix Tests Failur
-# 👕  :shirt: Fix Lint error
-# 🚀  :rocket: Improve Performance
-# 🆙  :up: Update
-# 🔒  :lock: Security Fix
-# 🐣	:hatching_chick: Initial Commit
+# ⭐️ :star: new Feature
+# 🎨 :art: when improving the format/structure of the code
+# 🐎 :racehorse: when improving performance
+# 🚱 :non-potable_water: when plugging memory leaks
+# 📝 :memo: when writing docs
+# 🐧 :penguin: when fixing something on Linux
+# 🍎 :apple: when fixing something on macOS
+# 🏁 :checkered_flag: when fixing something on Windows
+# 🐛 :bug: when fixing a bug
+# 🔥 :fire: when removing code or files
+# 💚 :green_heart: when fixing the CI build
+# ✅ :white_check_mark: when adding tests
+# 🔒 :lock: when dealing with security
+# 🐣 :hatching_chick: initial commit
+# ⬆️ :arrow_up: when upgrading dependencies
+# ⬇️i :arrow_down: when downgrading dependencies
+# 👕 :shirt: when removing linter warnings
 
 # ==== Format ====
 # :emoji: Subject
