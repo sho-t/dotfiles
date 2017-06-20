@@ -5,6 +5,16 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+depends = ['neomru.vim']
+on_cmd = 'Denite'
+if = 'has("nvim")'
+hook_source = 'source ~/.config/nvim/vimrc.d/plugins/denite.vim'
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = 'source ~/.config/nvim/vimrc.d/plugins/lightline.vim'
 
