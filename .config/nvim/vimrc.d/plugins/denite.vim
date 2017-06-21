@@ -20,6 +20,12 @@ nnoremap <silent> [denite]m :<C-u>Denite file_mru<CR>
 " dirmrulist
 nnoremap <silent> [denite]d :<C-u>Denite directory_rec<CR>
 
+if executable('rg')
+  call denite#custom#var('file_rec', 'command',
+        \ ['rg', '--files', '--glob', '!.git'])
+  call denite#custom#var('grep', 'command', ['rg'])
+endif
+
 call denite#custom#map('insert', 'jj', '<denite:enter_mode:normal>')
 call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
 call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
