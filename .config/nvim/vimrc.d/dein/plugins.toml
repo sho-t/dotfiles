@@ -15,6 +15,10 @@ if = 'has("nvim")'
 hook_source = 'source ~/.config/nvim/vimrc.d/plugins/denite.vim'
 
 [[plugins]]
+repo = "tpope/vim-fugitive"
+hook_add = 'source ~/.config/nvim/vimrc.d/plugins/fugitive.vim'
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = 'source ~/.config/nvim/vimrc.d/plugins/lightline.vim'
 
