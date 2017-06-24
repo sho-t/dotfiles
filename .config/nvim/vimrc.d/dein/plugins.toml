@@ -29,6 +29,9 @@ hook_add = 'source ~/.config/nvim/vimrc.d/plugins/fugitive.vim'
 repo = 'itchyny/lightline.vim'
 hook_add = 'source ~/.config/nvim/vimrc.d/plugins/lightline.vim'
 
+[[plugins]]
+repo = 'tpope/vim-surround'
+
 #======================
 # colorscheme
 #======================
@@ -43,3 +46,6 @@ repo = 'tomasr/molokai'
 
 [[plugins]]
 repo = 'sjl/badwolf'
+
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
