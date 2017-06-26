@@ -22,6 +22,10 @@ hook_source = 'source ~/.config/nvim/vimrc.d/plugins/deoplete.vim'
 on_i = 1
 
 [[plugins]]
+repo = 'kassio/neoterm'
+if = 'has("nvim")'
+
+[[plugins]]
 repo = "tpope/vim-fugitive"
 hook_add = 'source ~/.config/nvim/vimrc.d/plugins/fugitive.vim'
 
