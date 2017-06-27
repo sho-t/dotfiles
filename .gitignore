@@ -2,3 +2,7 @@
 !vim/dein/repos/github.com/Shougo/dein.vim
 .vim/.unite/bookmark/*
 .vim/cache/*
+
+# nvim plugins
+.config/nvim/dein/*
+!.config/nvim/dein/repos/github.com/Shougo/dein.vim
