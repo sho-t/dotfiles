@@ -1,4 +1,7 @@
-" KeyMap Setting--------------------------
+"=============================================================================
+" FILE: keymap.vim
+"=============================================================================
+
 noremap ; :
 
 " Move 
@@ -76,3 +79,6 @@ nnoremap sJ <C-w>J
 nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
+
+"neovim
+tnoremap <silent> <ESC> <C-\><C-n>
