@@ -43,6 +43,9 @@ repo = 'tpope/vim-surround'
 repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
+repo = 'lifepillar/vim-solarized8'
+
+[[plugins]]
 repo = 'nanotech/jellybeans.vim'
 
 [[plugins]]

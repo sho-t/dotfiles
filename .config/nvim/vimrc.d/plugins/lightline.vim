@@ -1,8 +1,12 @@
 " ColorScheme Setting--------------------------
 syntax enable
-set t_Co=256
 set background=dark
-colorscheme solarized
+" Use True Color
+set termguicolors
+" Use italic
+let g:solarized_term_italics = 1
+" Solarized Dark
+colorscheme solarized8_dark
 
 " LightLine Setting-----------------------------
 
@@ -55,8 +59,4 @@ function! MyFilename()
   return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
        \ ('' != MyModified() ? ' ' . MyModified() : '')
-endfunction
-
-function! MyAleStatus()
-  return ALEGetStatusLine()
 endfunction
