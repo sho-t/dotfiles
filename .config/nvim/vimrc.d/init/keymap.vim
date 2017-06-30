@@ -27,11 +27,12 @@ inoremap <silent> っj <ESC>
 "Off the highlight
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
-" Delete option 
+"Delete option 
 nnoremap dh d0
 nnoremap dl d$
-noremap PP "0p
+nnoremap PP "0p
 noremap x "_x
+noremap X "_X
 
 "Bring the search word to the center of the screen
 nnoremap n nzz
@@ -80,5 +81,9 @@ nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 
-"neovim
+" CommandLine: (c)
+cnoremap <C-a> <Home>
+cnoremap <C-d> <Del>
+
+" Terminal: (t)
 tnoremap <silent> <ESC> <C-\><C-n>
