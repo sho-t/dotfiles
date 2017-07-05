@@ -58,8 +58,9 @@ noremap <Space>h ^
 noremap <Space>l $
 noremap <Space>j <C-f>
 noremap <Space>k <C-b>
-noremap <Space>w :w<CR>
-noremap <Space>q :q<CR>
+nnoremap <Space>w :w<CR>
+nnoremap <Space>q :q<CR>
+nnoremap <Space>f :echo expand("%:p")<CR>
 
 "Jump to corresponding parenthesis
 nnoremap <Tab> %
@@ -87,3 +88,4 @@ cnoremap <C-d> <Del>
 
 " Terminal: (t)
 tnoremap <silent> <ESC> <C-\><C-n>
+tnoremap <silent> jj <C-\><C-n>
