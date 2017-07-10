@@ -41,6 +41,7 @@ set whichwrap=b,s,h,l,<,>,[,],~
 set number
 set nowrap
 set cursorline
+set conceallevel=0
 
 "Code
 set showmatch
@@ -70,6 +71,9 @@ set smartcase
 set incsearch
 set wrapscan
 set hlsearch
+
+set spelllang=en,cjk
+set confirm
 
 augroup Vimrc
   autocmd!
