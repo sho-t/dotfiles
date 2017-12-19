@@ -122,8 +122,17 @@ setopt hist_expand
 setopt hist_verify
 setopt inc_append_history
 
-bindkey "^R" history-incremental-search-backward
+# bindkey "^R" history-incremental-search-backward
 bindkey "^S" history-incremental-search-forward
+
+function peco-select-history() {
+    BUFFER="$(history -nr 1 | awk '!a[$0]++' | peco --query "$LBUFFER" | sed 's/\\n/\n/')"
+    CURSOR=$#BUFFER             # カーソルを文末に移動
+    zle -R -c                   # refresh
+}
+
+zle -N peco-select-history
+bindkey '^R' peco-select-history
 
 ### Smart-insert-last-word ###
 autoload -Uz smart-insert-last-word
