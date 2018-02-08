@@ -1,19 +1,15 @@
-# lang
+### genaral ###
+umask 022
+# Lang
 export LANG=ja_JP.UTF-8
-
 # Set the zsh root directoy
 export ZSH_ROOT=$HOME/.zsh
+# less option
+export LESS='-iMR'
+# mysql prompt
+export MYSQL_PS1='\u@\h[\d] ✘'
 
-### colors ###
-autoload -U colors ; colors
-local DEFAULT="%{[0m%}"
-local RED="%F{red}"
-local MAGENTA="%F{magenta}"
-local BLUE="%F{blue}"
-local CYAN="%F{cyan}"
-local GREEN="%F{green}"
-
-### genaral ###
+limit coredumpsize 0
 setopt ignoreeof
 export WORDCHARS='*?_.[]~=&;!#$%^(){}<>'
 setopt rm_star_silent
@@ -22,7 +18,15 @@ setopt bsd_echo
 setopt print_exit_value
 setopt promptcr
 unsetopt beep
-limit coredumpsize 0
+
+### colors ###
+autoload -Uz colors; colors
+local DEFAULT=""%{[0m%}""
+local RED="%F{red}"
+local MAGENTA="%F{magenta}"
+local BLUE="%F{blue}"
+local CYAN="%F{cyan}"
+local GREEN="%F{green}"
 
 ### prompt ###
 autoload -Uz vcs_info
@@ -38,16 +42,12 @@ zstyle ':vcs_info:git:*' actionformats '%F{blue}git:(%F{cyan}%b%c%u%f|%F{red}%a%
 
 precmd () { vcs_info }
 PROMPT='
-%(?.$GREEN.$RED) $MAGENTA%c$DEFAULT ${vcs_info_msg_0_}$DEFAULT ✘ '
+%(?.$GREEN.$RED) ✔ $MAGENTA%c$DEFAULT ${vcs_info_msg_0_}$DEFAULT ✘ '
 
 SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [No/Yes/Abort/Edit]"
 
 ### completion ###
-autoload _U compinit
-compinit -C
-
-setopt correct
-setopt correct_all
+autoload _U compinit; compinit -C
 
 setopt auto_list   
 setopt auto_menu
@@ -66,8 +66,6 @@ setopt globdots
 setopt list_packed
 setopt nolistbeep
 
-CORRECT_IGNORE='_*'
-CORRECT_IGNORE_FILE='.*'
 LISTMAX=0
 
 bindkey "^I" menu-complete
@@ -85,7 +83,7 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/s
 zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~' '*\#'
 
 #LS_COLORS
-eval $(gdircolors ~/.dircolors-solarized)
+eval $(gdircolors ~/.dircolors)
 if [ -n "$LS_COLORS" ]; then
     zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 fi
@@ -141,22 +139,24 @@ zle -N insert-last-word smart-insert-last-word
 zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
 
 ### alias# ##
-alias vim='nvim'
+hash nvim 2>/dev/null && alias vim='nvim'
 
 alias ls='gls --color=auto -a'
 alias ll='ls -l'
 alias reload='source ~/.zshrc'
-alias '..'='cd ..'
+alias copy='| pbcopy'
+alias mkdir='mkdir -p'
+alias cp='cp -i'
+alias rm='rm -i'
+
 alias -g ...='../..'
 alias -g ....='../../..'
-
 alias -g L='| less'
 alias -g H='| head'
 alias -g G='| grep'
 alias -g GI='| grep -ri'
-
-alias copy='| pbcopy'
-alias mkdir='mkdir -p'
+alias -g V='| vim -R -'
+alias -g Q=' --help | head'
 
 # Git alias
 alias gitconfig='vim ~/.gitconfig'
@@ -164,9 +164,6 @@ alias branch\?='git branch |grep'
 
 ### others ###
 typeset -U path PATH
-
-# tmux
-#hash tmux 2>/dev/null && source "$ZSH_ROOT/functions/tmux.zsh"
 
 # the fuck
 eval "$(thefuck --alias)"
@@ -189,3 +186,9 @@ export PATH=$HOME/.go/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 # Only run if npm is actually installed.
 hash npm 2>/dev/null && source "$ZSH_ROOT/node.zsh"
+
+# tmux
+#hash tmux 2>/dev/null && source "$ZSH_ROOT/functions/tmux.zsh"
+
+# Source local extra (private) settings specific to machine if it exists
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
