@@ -1,25 +1,29 @@
-### genaral ###
+# -------------------
+# genaral 
+# -------------------
 umask 022
 # Lang
 export LANG=ja_JP.UTF-8
 # Set the zsh root directoy
-export ZSH_ROOT=$HOME/.zsh
+export ZSH=$HOME/.zsh
 # less option
 export LESS='-iMR'
 # mysql prompt
 export MYSQL_PS1='\u@\h[\d] ✘'
+# delimiter
+export WORDCHARS='*?_.[]~=&;!#$%^(){}<>'
 
 limit coredumpsize 0
-setopt ignoreeof
-export WORDCHARS='*?_.[]~=&;!#$%^(){}<>'
+setopt ignore_eof
 setopt rm_star_silent
 setopt print_eight_bit
 setopt bsd_echo
-setopt print_exit_value
-setopt promptcr
-unsetopt beep
+setopt prompt_cr
+setopt nobeep
 
-### colors ###
+# -------------------
+# colors 
+# -------------------
 autoload -Uz colors; colors
 local DEFAULT=""%{[0m%}""
 local RED="%F{red}"
@@ -28,7 +32,9 @@ local BLUE="%F{blue}"
 local CYAN="%F{cyan}"
 local GREEN="%F{green}"
 
-### prompt ###
+# -------------------
+# prompt 
+# -------------------
 autoload -Uz vcs_info
 setopt prompt_subst
 
@@ -44,9 +50,11 @@ precmd () { vcs_info }
 PROMPT='
 %(?.$GREEN.$RED) ✔ $MAGENTA%c$DEFAULT ${vcs_info_msg_0_}$DEFAULT ✘ '
 
-SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [No/Yes/Abort/Edit]"
+# SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [No/Yes/Abort/Edit]"
 
-### completion ###
+# -------------------
+# completion
+# -------------------
 autoload _U compinit; compinit -C
 
 setopt auto_list   
@@ -82,13 +90,9 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
 zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~' '*\#'
 
-#LS_COLORS
-eval $(gdircolors ~/.dircolors)
-if [ -n "$LS_COLORS" ]; then
-    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-fi
-
-### cdr ###
+# -------------------
+# changing directories
+# -------------------
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 
@@ -98,13 +102,14 @@ zstyle ':chpwd:*' recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
-### cd ###
 setopt auto_cd
 cdpath=(~)
 setopt auto_pushd
 setopt pushd_ignore_dups
 
-### history ###
+# -------------------
+# history
+# -------------------
 export HISTFILE=~/.zsh_histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -138,13 +143,14 @@ autoload -Uz smart-insert-last-word
 zle -N insert-last-word smart-insert-last-word
 zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
 
-### alias# ##
+# -------------------
+# alias
+# -------------------
 hash nvim 2>/dev/null && alias vim='nvim'
 
 alias ls='gls --color=auto -a'
 alias ll='ls -l'
 alias reload='source ~/.zshrc'
-alias copy='| pbcopy'
 alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias rm='rm -i'
@@ -157,13 +163,22 @@ alias -g G='| grep'
 alias -g GI='| grep -ri'
 alias -g V='| vim -R -'
 alias -g Q=' --help | head'
+alias -g CP='| pbcopy'
 
 # Git alias
 alias gitconfig='vim ~/.gitconfig'
 alias branch\?='git branch |grep'
 
-### others ###
+# -------------------
+# others
+# -------------------
 typeset -U path PATH
+
+# ls colors
+eval $(gdircolors ~/.dircolors)
+if [ -n "$LS_COLORS" ]; then
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+fi
 
 # the fuck
 eval "$(thefuck --alias)"
@@ -185,10 +200,10 @@ export PATH=$HOME/.go/bin:$PATH
 # node
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 # Only run if npm is actually installed.
-hash npm 2>/dev/null && source "$ZSH_ROOT/node.zsh"
+hash npm 2>/dev/null && source "$ZSH/node.zsh"
 
 # tmux
-#hash tmux 2>/dev/null && source "$ZSH_ROOT/functions/tmux.zsh"
+#hash tmux 2>/dev/null && source "$ZSH/functions/tmux.zsh"
 
 # Source local extra (private) settings specific to machine if it exists
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
