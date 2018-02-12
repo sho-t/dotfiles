@@ -6,6 +6,7 @@ source ~/.zplug/init.zsh
 zplug 'zsh-users/zsh-syntax-highlighting', defer:2
 zplug check || zplug install
 
+zplug load
 # -------------------
 # general 
 # -------------------
@@ -63,7 +64,7 @@ PROMPT='
 # -------------------
 # completion
 # -------------------
-autoload _U compinit; compinit -C
+autoload -Uz compinit; compinit -C
 
 setopt auto_list   
 setopt auto_menu
@@ -107,7 +108,7 @@ add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':completion:*' recent-dirs-insert both
 zstyle ':chpwd:*' recent-dirs-max 500
 zstyle ':chpwd:*' recent-dirs-default true
-zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
+# zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
 setopt auto_cd
