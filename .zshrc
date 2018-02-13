@@ -108,7 +108,6 @@ add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':completion:*' recent-dirs-insert both
 zstyle ':chpwd:*' recent-dirs-max 500
 zstyle ':chpwd:*' recent-dirs-default true
-# zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/shell/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
 setopt auto_cd
@@ -134,24 +133,8 @@ setopt hist_expand
 setopt hist_verify
 setopt inc_append_history
 
-# bindkey "^R" history-incremental-search-backward
-bindkey "^S" history-incremental-search-forward
-
-function peco-select-history() {
-    BUFFER="$(history -nr 1 | awk '!a[$0]++' | peco --query "$LBUFFER" | sed 's/\\n/\n/')"
-    CURSOR=$#BUFFER             # カーソルを文末に移動
-    zle -R -c                   # refresh
-}
-
-zle -N peco-select-history
-bindkey '^R' peco-select-history
-
-### Smart-insert-last-word ###
-autoload -Uz smart-insert-last-word
-
-zle -N insert-last-word smart-insert-last-word
-zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
-
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
 # -------------------
 # alias
 # -------------------
@@ -200,7 +183,9 @@ if builtin type pyenv >/dev/null 2>&1; then
 fi
 
 # rbenv
-eval "$(rbenv init -)"
+if [ -e "$HOME/.rbenv" ]; then
+  eval "$(rbenv init - zsh)"
+fi
 
 # go
 export GOPATH=$HOME/.go
