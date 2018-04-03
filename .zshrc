@@ -59,8 +59,6 @@ precmd () { vcs_info }
 PROMPT='
 %(?.$GREEN.$RED) ✔ $MAGENTA%c$DEFAULT ${vcs_info_msg_0_}$DEFAULT ✘ '
 
-# SPROMPT="correct: $RED%R$DEFAULT -> $GREEN%r$DEFAULT ? [No/Yes/Abort/Edit]"
-
 # -------------------
 # completion
 # -------------------
@@ -140,9 +138,11 @@ bindkey '^N' history-beginning-search-forward
 # -------------------
 hash nvim 2>/dev/null && alias vim='nvim'
 
-alias ls='gls --color=auto -a'
+alias ls='gls --color=auto'
+alias la='ls -A'
 alias ll='ls -l'
-alias reload='source ~/.zshrc'
+alias lla='ls -lA'
+alias relogin='exec $SHELL -l'
 alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias rm='rm -i'
