@@ -1,13 +1,4 @@
 # -------------------
-# zplug
-# -------------------
-source ~/.zplug/init.zsh
-
-zplug 'zsh-users/zsh-syntax-highlighting', defer:2
-zplug check || zplug install
-
-zplug load
-# -------------------
 # general 
 # -------------------
 umask 022
@@ -34,7 +25,7 @@ setopt nobeep
 # colors 
 # -------------------
 autoload -Uz colors; colors
-local DEFAULT=""%{[0m%}""
+local DEFAULT=%{$reset_color%}
 local RED="%F{red}"
 local MAGENTA="%F{magenta}"
 local BLUE="%F{blue}"
@@ -133,6 +124,7 @@ setopt inc_append_history
 
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
+
 # -------------------
 # alias
 # -------------------
@@ -165,6 +157,8 @@ alias branch\?='git branch |grep'
 # others
 # -------------------
 typeset -U path PATH
+
+[ -f ~/.zplug/init.zsh ] && source "$ZSH/zplug.zsh"
 
 # ls colors
 eval $(gdircolors ~/.dircolors)
