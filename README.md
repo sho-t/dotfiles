@@ -1,8 +1,7 @@
 # My dotfiles :sparkles:
 
-## How to use
+## How to install
+Run this :)
 ```
-$ cd
-$ git clone --recursive https://github.com/sho-t/dotfiles.git
-$ ./setup.sh
+$ bash -c "$(curl -fsSL raw.github.com/sho-t/dotfiles/master/install.sh)"
 ```
