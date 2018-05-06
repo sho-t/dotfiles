@@ -32,6 +32,11 @@ local BLUE="%F{blue}"
 local CYAN="%F{cyan}"
 local GREEN="%F{green}"
 
+# ls colors
+eval $(gdircolors ~/.dircolors)
+if [ -n "$LS_COLORS" ]; then
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+fi
 # -------------------
 # prompt 
 # -------------------
@@ -134,7 +139,7 @@ alias ls='gls --color=auto'
 alias la='ls -A'
 alias ll='ls -l'
 alias lla='ls -lA'
-alias relogin='exec $SHELL -l'
+alias reload='exec $SHELL -l'
 alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias rm='rm -i'
@@ -156,42 +161,8 @@ alias branch\?='git branch |grep'
 # -------------------
 # others
 # -------------------
-typeset -U path PATH
-
-[ -f ~/.zplug/init.zsh ] && source "$ZSH/zplug.zsh"
-
-# ls colors
-eval $(gdircolors ~/.dircolors)
-if [ -n "$LS_COLORS" ]; then
-    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-fi
-
-# the fuck
-eval "$(thefuck --alias)"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if builtin type pyenv >/dev/null 2>&1; then 
-  eval "$(pyenv init -)";
-fi
-
-# rbenv
-if [ -e "$HOME/.rbenv" ]; then
-  eval "$(rbenv init - zsh)"
-fi
-
-# go
-export GOPATH=$HOME/.go
-export PATH=$HOME/.go/bin:$PATH
-
-# node
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-# Only run if npm is actually installed.
 hash npm 2>/dev/null && source "$ZSH/node.zsh"
-
-# tmux
 #hash tmux 2>/dev/null && source "$ZSH/functions/tmux.zsh"
 
-# Source local extra (private) settings specific to machine if it exists
+[ -f ~/.zplug/init.zsh ] && source "$ZSH/zplug.zsh"
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
