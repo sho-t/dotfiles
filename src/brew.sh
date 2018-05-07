@@ -19,7 +19,7 @@ initialize() {
   if has "brew"; then
     p_start "Updating Homebrew"
     brew update && brew upgrade
-    [[ $? ]] && success "Homebrew initialized" 
+    [[ $? ]] && p_success "Homebrew initialized" 
   fi
 }
 

@@ -29,7 +29,7 @@ create_symlinks() {
 main() {
   p_start "Create symbolic links"
   create_symlinks
-  p_success "Linked!"
+  p_success "Linked"
 }
 
 main "$@"

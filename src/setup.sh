@@ -9,6 +9,7 @@ declare -r GITHUB_UTILS_URL="https://raw.githubusercontent.com/sho-t/dotfiles/ma
 # --------------------------------------------------
 # download dotfiles
 # --------------------------------------------------
+ 
 load_utils() {
 
   local tmpFile="$(mktemp /tmp/XXXXX)"
@@ -44,7 +45,6 @@ main() {
 
   # Homebrew setup
   ./brew.sh
-
 }
 
 main "$@"
