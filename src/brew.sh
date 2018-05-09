@@ -12,12 +12,12 @@ initialize() {
   if has "brew"; then
     echo "$(tput setaf 2)Already installed Homebrew ✔︎$(tput sgr0)"
   else
-    p_start "Installing Homebrew"
+    p_info "Installing Homebrew..."
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
   if has "brew"; then
-    p_start "Updating Homebrew"
+    p_info "Updating Homebrew..."
     brew update && brew upgrade
     [[ $? ]] && p_success "Homebrew initialized" 
   fi

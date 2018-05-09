@@ -14,7 +14,7 @@ load_utils() {
 
   local tmpFile="$(mktemp /tmp/XXXXX)"
 
-  curl -LsSo "$GITHUB_UTILS_URL" "$tmpFile" \
+  curl -LsS "$GITHUB_UTILS_URL" -o "$tmpFile" \
   && . "$tmpFile" \
   && rm -rf "$tmpFile" \
   && return 0
@@ -24,7 +24,7 @@ load_utils() {
 
 download_dotfiles() {
   if has "git"; then
-    p_start "Downloading dotfiles"  
+    p_info "Downloading dotfiles"  
     git clone --recursive "$GITHUB_URL" "$DOTPATH"
   else
     p_error "git required" 
@@ -34,7 +34,7 @@ download_dotfiles() {
 }
 
 main() {
-  p_start "Setup starting"
+  p_start "dotfiles setup starting"
   load_utils
   download_dotfiles
 

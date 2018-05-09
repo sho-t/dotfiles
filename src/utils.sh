@@ -44,7 +44,7 @@ p_white() {
 }
 
 p_start() {
-  p_white "  ➜ $1"
+  p_white " ・ $1"
   printf "...\n"
 }
 
@@ -59,5 +59,9 @@ p_warning() {
 }
 
 p_error() {
-  p_red "  ✖ $1 $2\n"
+  p_red "  ✗ $1 $2\n"
+}
+
+p_info() {
+  p_purple "  ➜ $1 \n"
 }

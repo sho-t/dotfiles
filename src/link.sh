@@ -19,7 +19,7 @@ create_symlinks() {
     ln -sniv "$PWD/$dotfile" $HOME
   done
 
-  if [ -d $CONFIGDIR ]; then
+  if [ ! -d $CONFIGDIR ]; then
     mkdir -r $CONFIGDIR
   fi
 
