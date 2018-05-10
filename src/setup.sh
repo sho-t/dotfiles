@@ -24,18 +24,20 @@ load_utils() {
 
 download_dotfiles() {
   if has "git"; then
-    p_info "Downloading dotfiles"  
+    p_start "Downloading dotfiles"  
     git clone --recursive "$GITHUB_URL" "$DOTPATH"
   else
-    p_error "git required" 
+    p_error "Git required" 
     exit 1
   fi
   p_success "Download dotfiles"
 }
 
 main() {
-  p_start "dotfiles setup starting"
+  
   load_utils
+
+  p_start "Dotfiles Setup Starting"
   download_dotfiles
 
   cd "$DOTPATH/src"
@@ -43,8 +45,10 @@ main() {
   # link dotfiles
   ./link.sh
 
-  # Homebrew setup
+  # Install formula
   ./brew.sh
+
+  p_info "Setup Successful"
 }
 
 main "$@"

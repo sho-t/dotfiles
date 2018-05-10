@@ -10,9 +10,9 @@ declare -r DOTPATH="${HOME}/dotfiles"
 
 initialize() {
   if has "brew"; then
-    echo "$(tput setaf 2)Already installed Homebrew ✔︎$(tput sgr0)"
+    p_info "Already installed Homebrew ✔︎"
   else
-    p_info "Installing Homebrew..."
+    p_start "Installing Homebrew"
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
@@ -20,6 +20,8 @@ initialize() {
     p_info "Updating Homebrew..."
     brew update && brew upgrade
     [[ $? ]] && p_success "Homebrew initialized" 
+  else
+    p_error "failed Hombrew install"; exit 1
   fi
 }
 
@@ -31,7 +33,7 @@ install() {
 
 main() {
   p_start "Setup Homebrew"
-  initialize && install && p_success "Homebrew setup complete"
+  initialize && install && p_success "Setup Homebrew"
 }
 
 main "$@"

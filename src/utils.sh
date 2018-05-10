@@ -43,25 +43,26 @@ p_white() {
     p_color "$1" 7
 }
 
+p_info() {
+  printf "➜ ➜  $1\n"
+}
+
 p_start() {
-  p_white " ・ $1"
-  printf "...\n"
+  printf "➜ ➜  $1...\n"
 }
 
 p_success() {
-  p_white "  ✔ $1"
-  printf "..."
-  p_blue "OK\n"
+  printf "➜ ➜  $1..."
+  p_blue "OK✔ \n"
 }
 
 p_warning() {
-  p_yellow "  ! $1\n"
+  printf "➜ ➜  "
+  p_yellow "$1 !\n"
 }
 
 p_error() {
-  p_red "  ✗ $1 $2\n"
+  printf "➜ ➜  "
+  p_red "$1 ✗ $2\n"
 }
 
-p_info() {
-  p_purple "  ➜ $1 \n"
-}

@@ -15,7 +15,7 @@ install_zplug() {
 
 install_dircolors() {
   if [ ! -r ${DIRCOLORS} ] ; then
-    curl -o https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-universal ~/.dircolors
+    curl -o https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-universal DIRCOLORS
   fi
 }
 
