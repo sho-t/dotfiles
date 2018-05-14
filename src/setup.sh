@@ -48,7 +48,8 @@ main() {
   # Install formula
   ./brew.sh
 
-  p_info "Setup Successful"
+  # setup librarys
+  ./init/main.sh
 }
 
 main "$@"
