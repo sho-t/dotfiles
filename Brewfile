@@ -28,7 +28,6 @@ brew "hub"
 brew "lua"
 brew "python"
 brew "macvim", args: ["with-lua"]
-brew "mysql"
 brew "neovim"
 brew "peco"
 brew "reattach-to-user-namespace"
