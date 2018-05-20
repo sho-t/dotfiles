@@ -2,6 +2,7 @@ typeset -U path PATH
 
 path=( \
   /usr/local/bin(N-/) \
+  ~/bin(N-/) \
   ~/.anyenv/bin(N-/) \
   ~/.go/bin(N-/)
   "$path[@]" \

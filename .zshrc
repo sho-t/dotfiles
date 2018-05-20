@@ -155,13 +155,12 @@ alias -g Q=' --help | head'
 alias -g CP='| pbcopy'
 
 # Git alias
-alias gitconfig='vim ~/.gitconfig'
 alias branch\?='git branch |grep'
 
 # -------------------
 # others
 # -------------------
-hash npm 2>/dev/null && source "$ZSH/node.zsh"
+(( ${+commands[npm]} )) && source "$ZSH/node.zsh"
 #hash tmux 2>/dev/null && source "$ZSH/functions/tmux.zsh"
 
 [ -f ~/.zplug/init.zsh ] && source "$ZSH/zplug.zsh"
