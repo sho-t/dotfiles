@@ -15,6 +15,7 @@ create_symlinks() {
     [ "$dotfile" = ".git" ] && continue
     [ "$dotfile" = ".gitmodules" ] && continue
     [ "$dotfile" = ".gitignore" ] && continue
+    [ "$dotfile" = ".config" ] && continue
 
     ln -sniv "$PWD/$dotfile" $HOME
   done
