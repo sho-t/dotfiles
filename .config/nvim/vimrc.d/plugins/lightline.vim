@@ -9,7 +9,6 @@ let g:solarized_term_italics = 1
 colorscheme solarized8_dark
 
 " LightLine Setting-----------------------------
-
 let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
@@ -23,8 +22,8 @@ let g:lightline = {
       \   'filename': "MyFilename",
       \   'ale': "MyAleStatus"
       \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
+      \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
       \ }
 
 function! MyModified()
@@ -41,7 +40,7 @@ function! MyReadonly()
     if &filetype == "help"
         return ""
     elseif &readonly
-        return "⭤"
+        return "\u2b64"
     else
         return ""
     endif
@@ -50,7 +49,7 @@ endfunction
 function! MyFugitive()
     if exists("*fugitive#head")
         let branch = fugitive#head()
-        return branch !=# '' ? '⭠ '.branch : ''
+        return branch !=# '' ? "\u2b60 ".branch : ''
     endif
     return ''
 endfunction
