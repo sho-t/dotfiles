@@ -37,6 +37,7 @@ eval $(gdircolors ~/.dircolors)
 if [ -n "$LS_COLORS" ]; then
     zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 fi
+
 # -------------------
 # prompt 
 # -------------------
@@ -130,6 +131,11 @@ setopt inc_append_history
 bindkey '^P' history-beginning-search-backward
 bindkey '^N' history-beginning-search-forward
 
+autoload -Uz smart-insert-last-word
+zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
+zle -N insert-last-word smart-insert-last-word
+bindkey '^]' insert-last-word
+
 # -------------------
 # alias
 # -------------------
@@ -154,13 +160,10 @@ alias -g V='| vim -R -'
 alias -g Q=' --help | head'
 alias -g CP='| pbcopy'
 
-# Git alias
-alias branch\?='git branch |grep'
-
 # -------------------
 # others
 # -------------------
-(( ${+commands[npm]} )) && source "$ZSH/node.zsh"
+(( ${+commands[node]} )) && source "$ZSH/node.zsh"
 #hash tmux 2>/dev/null && source "$ZSH/functions/tmux.zsh"
 
 [ -f ~/.zplug/init.zsh ] && source "$ZSH/zplug.zsh"
