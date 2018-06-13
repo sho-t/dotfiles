@@ -106,7 +106,6 @@ zstyle ':chpwd:*' recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-pushd true
 
 setopt auto_cd
-cdpath=(~)
 setopt auto_pushd
 setopt pushd_ignore_dups
 
@@ -114,8 +113,8 @@ setopt pushd_ignore_dups
 # history
 # -------------------
 export HISTFILE=~/.zsh_histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 
 setopt share_history
 setopt hist_ignore_all_dups
@@ -128,8 +127,11 @@ setopt hist_expand
 setopt hist_verify
 setopt inc_append_history
 
-bindkey '^P' history-beginning-search-backward
-bindkey '^N' history-beginning-search-forward
+autoload history-search-end 
+zle -N history-beginning-search-backward-end history-search-end 
+zle -N history-beginning-search-forward-end history-search-end 
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
 
 autoload -Uz smart-insert-last-word
 zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'

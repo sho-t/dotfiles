@@ -8,6 +8,8 @@ path=( \
   "$path[@]" \
   )
 
+cdpath=(~)
+
 eval "$(anyenv init - --no-rehash)"
 eval "$(thefuck --alias)"
 
