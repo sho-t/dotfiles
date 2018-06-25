@@ -2,22 +2,16 @@
 # general 
 # -------------------
 umask 022
-# Lang
 export LANG=ja_JP.UTF-8
-# Set the zsh root directoy
 export ZSH=$HOME/.zsh
-# less option
 export LESS='-iMR'
-# mysql prompt
 export MYSQL_PS1='\u@\h[\d] ✘'
-# delimiter
 export WORDCHARS='*?_.[]~=&;!#$%^(){}<>'
 
 limit coredumpsize 0
 setopt ignore_eof
 setopt rm_star_silent
 setopt print_eight_bit
-setopt bsd_echo
 setopt prompt_cr
 setopt nobeep
 
@@ -141,7 +135,7 @@ bindkey '^]' insert-last-word
 # -------------------
 # alias
 # -------------------
-hash nvim 2>/dev/null && alias vim='nvim'
+alias vim='nvim'
 
 alias ls='gls --color=auto'
 alias la='ls -A'
