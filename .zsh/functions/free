@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+main() {
+  local selected
+  selected=$(tree -CNf ${1:-.} | fzf --ansi --no-sort | awk '{print $NF}' | xargs echo)
+
+  [[ -d "$selected" ]] && echo "cd $selected"; cd $selected
+  [[ -f "$selected" ]] && ${EDITOR:-nvim} "${selected[@]}"
+}
+
+main "$@"

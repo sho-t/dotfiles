@@ -157,6 +157,11 @@ alias -g Q=' --help | head'
 alias -g CP='| pbcopy'
 
 # -------------------
+# functions
+# -------------------
+autoload free
+
+# -------------------
 # others
 # -------------------
 (( ${+commands[node]} )) && source "$ZSH/node.zsh"
