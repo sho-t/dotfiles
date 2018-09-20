@@ -1,0 +1,5 @@
+#compdef free
+
+_free() {
+  _path_files '-/'
+}

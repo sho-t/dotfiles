@@ -159,7 +159,7 @@ alias -g CP='| pbcopy'
 # -------------------
 # functions
 # -------------------
-autoload free
+autoload -Uz free fdr
 
 # -------------------
 # others

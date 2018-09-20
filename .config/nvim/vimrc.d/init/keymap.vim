@@ -2,8 +2,6 @@
 " FILE: keymap.vim
 "=============================================================================
 
-noremap ; :
-
 " Move 
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
@@ -11,7 +9,7 @@ inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
 "Yank & Paste
-noremap <silent> Y y$
+nnoremap <silent> Y y$
 vnoremap <silent> y y`]
 vnoremap <silent> p p`]
 nnoremap <silent> p p`]
