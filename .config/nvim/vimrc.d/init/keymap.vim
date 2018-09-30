@@ -2,12 +2,13 @@
 " FILE: keymap.vim
 "=============================================================================
 
-" Move 
+" Insert: (i)
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
+" Normal: (n)
 "Yank & Paste
 nnoremap <silent> Y y$
 vnoremap <silent> y y`]
@@ -28,7 +29,7 @@ nmap <silent> <Esc><Esc> :nohlsearch<CR>
 "Delete option 
 nnoremap dh d0
 nnoremap dl d$
-nnoremap PP "0p
+noremap PP "0p
 noremap x "_x
 noremap X "_X
 
@@ -41,8 +42,8 @@ nnoremap g* g*zz
 nnoremap g# g#zz
 
 "Move with wrapped text
-nnoremap j gj
-nnoremap k gk
+noremap j gj
+noremap k gk
 
 "Increment & Decrement
 nnoremap + <C-a>
@@ -80,10 +81,14 @@ nnoremap sK <C-w>K
 nnoremap sL <C-w>L
 nnoremap sH <C-w>H
 
-" CommandLine: (c)
-cnoremap <C-a> <Home>
-cnoremap <C-d> <Del>
+" commandline: (c)
+cnoremap <c-a> <c-b>
+cnoremap <c-d> <del>
+cnoremap <c-p> <up>
+cnoremap <c-n> <down>
+cnoremap <c-b> <C-Left>
+cnoremap <c-f> <C-Right>
 
-" Terminal: (t)
+" terminal: (t)
 tnoremap <silent> <ESC> <C-\><C-n>
 tnoremap <silent> jj <C-\><C-n>

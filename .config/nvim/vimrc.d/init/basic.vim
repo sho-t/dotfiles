@@ -2,9 +2,6 @@
 " FILE: basic.vim
 "=============================================================================
 
-"Font
-set guifont=Ricty\ for\ Powerline:h15
-
 "Encode
 set encoding=utf-8
 scriptencoding utf-8
@@ -50,7 +47,7 @@ set smarttab
 
 "System
 set wildmenu
-set wildmode=list:longest,full
+set wildmode=longest,full
 set history=1000
 set infercase
 set virtualedit+=block  
