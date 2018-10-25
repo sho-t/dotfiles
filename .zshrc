@@ -15,6 +15,8 @@ setopt print_eight_bit
 setopt prompt_cr
 setopt nobeep
 
+bindkey "^B" backward-word
+bindkey "^F" forward-word
 # -------------------
 # colors 
 # -------------------
@@ -160,6 +162,16 @@ alias -g CP='| pbcopy'
 # functions
 # -------------------
 autoload -Uz free fdr
+
+function command-substitution(){
+  BUFFER=$BUFFER"\$("
+  CURSOR=$#BUFFER
+  BUFFER=$BUFFER")"
+}
+
+zle -N command-substitution
+
+bindkey '^D' command-substitution
 
 # -------------------
 # others
