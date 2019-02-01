@@ -17,6 +17,7 @@ setopt nobeep
 
 bindkey "^B" backward-word
 bindkey "^F" forward-word
+
 # -------------------
 # colors 
 # -------------------
@@ -137,6 +138,7 @@ bindkey '^]' insert-last-word
 # -------------------
 # alias
 # -------------------
+alias vi='nvim'
 alias vim='nvim'
 
 alias ls='gls --color=auto'
@@ -161,16 +163,12 @@ alias -g CP='| pbcopy'
 # -------------------
 # functions
 # -------------------
-autoload -Uz free fdr
+autoload -Uz free fdr copy-buffer command-substitution showopt
 
-function command-substitution(){
-  BUFFER=$BUFFER"\$("
-  CURSOR=$#BUFFER
-  BUFFER=$BUFFER")"
-}
-
+zle -N copy-buffer
 zle -N command-substitution
 
+bindkey '^Y' copy-buffer
 bindkey '^D' command-substitution
 
 # -------------------
@@ -181,5 +179,4 @@ bindkey '^D' command-substitution
 
 [ -f ~/.zplug/init.zsh ] && source "$ZSH/zplug.zsh"
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

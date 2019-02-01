@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+function main(){
+  BUFFER=$BUFFER"\$("
+  CURSOR=$#BUFFER
+  BUFFER=$BUFFER")"
+}
+
+main
