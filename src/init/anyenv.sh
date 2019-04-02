@@ -5,6 +5,7 @@
 # --------------------------------------------------
 
 if [ ! -d ${HOME}/.anyenv ]; then
-  git clone https://github.com/riywo/anyenv ~/.anyenv
+  anyenv install --init
+  anyenv install nodenv
   exec $SHELL -l
 fi
