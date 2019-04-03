@@ -6,4 +6,6 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 ./anyenv.sh
 ./zsh.sh
 ./ricty.sh
+./neovim.sh
+./fzf.sh
 
