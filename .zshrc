@@ -149,6 +149,8 @@ alias reload='exec $SHELL -l'
 alias mkdir='mkdir -p'
 alias cp='cp -i'
 alias rm='rm -i'
+alias pdate='date "+%Y%m%d"'
+alias pdatetime='date "+%Y%m%d%H%M%S"'
 
 alias -g ...='../..'
 alias -g ....='../../..'
