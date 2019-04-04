@@ -6,7 +6,7 @@ set termguicolors
 " Use italic
 let g:solarized_term_italics = 1
 " Solarized Dark
-colorscheme solarized8_dark
+colorscheme solarized8
 
 " LightLine Setting-----------------------------
 let g:lightline = {
