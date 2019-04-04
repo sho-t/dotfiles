@@ -21,7 +21,7 @@ create_symlinks() {
   done
 
   if [ ! -d $CONFIGDIR ]; then
-    mkdir -r $CONFIGDIR
+    mkdir -p $CONFIGDIR
   fi
 
   ln -sniv "$PWD/.config/nvim" $CONFIGDIR

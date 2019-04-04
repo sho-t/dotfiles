@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ttfpath="/usr/local/opt/ricty/share/fonts/Ricty*s.ttf"
+ttfpath="/usr/local/opt/ricty/share/fonts/Ricty*.ttf"
 
 # --------------------------------------------------
 # | ricty setup function
