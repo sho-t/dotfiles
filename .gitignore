@@ -6,3 +6,7 @@
 # nvim plugins
 .config/nvim/dein/*
 !.config/nvim/dein/repos/github.com/Shougo/dein.vim
+
+# zsh remote completions
+_*
+!_free
