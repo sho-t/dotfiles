@@ -2,7 +2,7 @@ typeset -U path PATH
 
 path=( \
   /usr/local/bin(N-/) \
-  ~/bin(N-/) \
+  ~/.bin(N-/) \
   ~/.go/bin(N-/)
   "$path[@]" \
   )
@@ -17,6 +17,7 @@ fpath=( \
 cdpath=(~)
 
 eval "$(anyenv init - --no-rehash)"
+eval "$(hub alias -s)"
 eval "$(thefuck --alias)"
 
 export GOPATH=$HOME/.go
