@@ -135,6 +135,8 @@ zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
 zle -N insert-last-word smart-insert-last-word
 bindkey '^]' insert-last-word
 
+autoload -Uz zmv
+
 # -------------------
 # alias
 # -------------------
@@ -151,6 +153,12 @@ alias cp='cp -i'
 alias rm='rm -i'
 alias pdate='date "+%Y%m%d"'
 alias pdatetime='date "+%Y%m%d%H%M%S"'
+
+alias zmv='noglob zmv -W'
+
+alias s='git status -sb'
+alias fig='docker-compose'
+alias xopen='open -a /Applications/Xcode.app'
 
 alias -g ...='../..'
 alias -g ....='../../..'
