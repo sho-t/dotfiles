@@ -1,3 +1,7 @@
+[user]
+	name = shotagawa
+	email = aznecosann@gmail.com
+
 [commit]
   template = ~/.gitmessage
 
@@ -13,3 +17,5 @@
   fresh = git branch --merged | egrep -v "develop|master" | xargs git branch -d
   back = checkout "-"
   graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset? %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
+  unstage = reset HEAD
+
