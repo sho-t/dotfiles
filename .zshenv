@@ -16,7 +16,6 @@ fpath=( \
 
 cdpath=(~)
 
-eval "$(anyenv init - --no-rehash)"
 eval "$(hub alias -s)"
 eval "$(thefuck --alias)"
 

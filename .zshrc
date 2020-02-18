@@ -190,3 +190,5 @@ bindkey '^D' command-substitution
 [ -f ~/.zplug/init.zsh ] && source "$ZSH/zplug.zsh"
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(anyenv init - --no-rehash)"
