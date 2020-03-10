@@ -10,8 +10,8 @@ ttfpath="/usr/local/opt/ricty/share/fonts/Ricty*.ttf"
 
 cp -f $ttfpath ~/Library/Fonts/
 
-git clone https://github.com/Lokaltog/vim-powerline ~/.vim-powerline
-fontforge -script ~/.vim-powerline/fontpatcher/fontpatcher ~/Library/Fonts/Ricty-Regular.ttf
+git clone git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git ~/.nerd-fonts
+fontforge -script ~/.nerd-fonts/font-patcher -c ~/Library/Fonts/Ricty-Regular.ttf
 
 mv -f *.ttf ~/Library/Fonts/
 fc-cache -vf

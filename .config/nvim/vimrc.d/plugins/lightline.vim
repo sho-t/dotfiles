@@ -22,8 +22,8 @@ let g:lightline = {
       \   'filename': "MyFilename",
       \   'ale': "MyAleStatus"
       \ },
-      \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
-      \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
+      \ 'separator': { 'left': "\uE0b0", 'right': "\uE0b2" },
+      \ 'subseparator': { 'left': "\uE0b1", 'right': "\uE0b3" }
       \ }
 
 function! MyModified()
