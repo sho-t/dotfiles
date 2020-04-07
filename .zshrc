@@ -159,6 +159,8 @@ alias zmv='noglob zmv -W'
 alias s='git status -sb'
 alias fig='docker-compose'
 alias xopen='open -a /Applications/Xcode.app'
+alias pv='open -a Preview'
+alias typora='open -a Typora'
 
 alias -g ...='../..'
 alias -g ....='../../..'
@@ -169,6 +171,11 @@ alias -g GI='| grep -ri'
 alias -g V='| vim -R -'
 alias -g Q=' --help | head'
 alias -g CP='| pbcopy'
+
+alias -s txt='vim'
+alias -s html='open'
+alias -s {md,markdown}='typora'
+alias -s {png,jpg,bmp,PNG,JPG,BMP}='pv'
 
 # -------------------
 # functions
