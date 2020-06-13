@@ -87,24 +87,28 @@ zstyle ':completion:*' use-cache true
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
-zstyle ':completion:*:cd:*' ignore-parents parent pwd
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
 zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~' '*\#'
 
 # -------------------
 # changing directories
 # -------------------
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_minus
+setopt pushd_ignore_dups
+
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 
-zstyle ':completion:*' recent-dirs-insert both
-zstyle ':chpwd:*' recent-dirs-max 500
 zstyle ':chpwd:*' recent-dirs-default true
-zstyle ':chpwd:*' recent-dirs-pushd true
-
-setopt auto_cd
-setopt auto_pushd
-setopt pushd_ignore_dups
+zstyle ':chpwd:*' recent-dirs-max 500
+zstyle ':chpwd:*' recent-dirs-file \
+  $HOME/.cache/shell/.chpwd-recent-dirs-${TTY##*/} +
+zstyle ':chpwd:*' recent-dirs-prune 'parent'
+zstyle ':completion:*' recent-dirs-insert fallback
 
 # -------------------
 # history
