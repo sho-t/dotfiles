@@ -113,20 +113,29 @@ zstyle ':completion:*' recent-dirs-insert fallback
 # -------------------
 # history
 # -------------------
-export HISTFILE=~/.zsh_histfile
+HISTFILE=~/.zsh_histfile
+HISTORY_IGNORE="(cd|pwd|l[sal])"
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt share_history
+setopt extended_history
+setopt hist_allow_clobber
+setopt hist_fcntl_lock
+setopt hist_find_no_dups 
 setopt hist_ignore_all_dups
 setopt hist_ignore_dups
 setopt hist_ignore_space
-setopt hist_save_no_dups
-setopt hist_reduce_blanks
+setopt hist_no_functions
 setopt hist_no_store
-setopt hist_expand
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
 setopt hist_verify
-setopt inc_append_history
+setopt inc_append_history_time
+
+zshaddhistory() {
+  emulate -L zsh
+  [[ ${1%%$'\n'} != ${~HISTORY_IGNORE} ]]
+}
 
 autoload history-search-end 
 zle -N history-beginning-search-backward-end history-search-end 
