@@ -8,9 +8,9 @@ declare -r COMPLETION_PATH="${HOME}/.zsh/completions"
 # | zsh setup function
 # --------------------------------------------------
  
-install_zplug() {
+install_zinit() {
   if [ ! -d ${ZPLUG} ] ; then
-    curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
   fi
 }
 
@@ -31,7 +31,7 @@ fetch_completions() {
 
 main() {
   install_dircolors
-  install_zplug
+  install_zinit
   fetch_completions
 }
 

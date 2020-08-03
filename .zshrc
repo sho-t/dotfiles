@@ -207,7 +207,7 @@ bindkey '^D' command-substitution
 (( ${+commands[node]} )) && source "$ZSH/node.zsh"
 #hash tmux 2>/dev/null && source "$ZSH/functions/tmux.zsh"
 
-[ -f ~/.zplug/init.zsh ] && source "$ZSH/zplug.zsh"
+[ -f ~/.zinit/bin/zinit.zsh ] && source "$ZSH/zinit.zsh"
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
