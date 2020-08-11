@@ -7,6 +7,7 @@ export ZSH=$HOME/.zsh
 export LESS='-iMR'
 export MYSQL_PS1='\u@\h[\d] ✘'
 export WORDCHARS='*?_.[]~=&;!#$%^(){}<>'
+export EDITOR='nvim'
 
 limit coredumpsize 0
 setopt ignore_eof
@@ -127,6 +128,7 @@ setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_no_functions
 setopt hist_no_store
+
 setopt hist_reduce_blanks
 setopt hist_save_no_dups
 setopt hist_verify
@@ -184,6 +186,8 @@ alias -g GI='| grep -ri'
 alias -g V='| vim -R -'
 alias -g Q=' --help | head'
 alias -g CP='| pbcopy'
+alias -g N='> /dev/null 2>&1'
+alias -g W='| wc -l'
 
 alias -s txt='vim'
 alias -s html='open'
