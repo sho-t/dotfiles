@@ -1,5 +1,5 @@
 # -------------------
-# general 
+# General 
 # -------------------
 umask 022
 export LANG=ja_JP.UTF-8
@@ -16,11 +16,8 @@ setopt print_eight_bit
 setopt prompt_cr
 setopt nobeep
 
-bindkey "^B" backward-word
-bindkey "^F" forward-word
-
 # -------------------
-# colors 
+# Colors 
 # -------------------
 autoload -Uz colors; colors
 local DEFAULT=%{$reset_color%}
@@ -37,7 +34,7 @@ if [ -n "$LS_COLORS" ]; then
 fi
 
 # -------------------
-# prompt 
+# Prompt 
 # -------------------
 autoload -Uz vcs_info
 setopt prompt_subst
@@ -55,7 +52,7 @@ PROMPT='
 %(?.$GREEN.$RED) ✔ $MAGENTA%c$DEFAULT ${vcs_info_msg_0_}$DEFAULT ✘ '
 
 # -------------------
-# completion
+# Completion
 # -------------------
 autoload -Uz compinit; compinit -C
 
@@ -78,7 +75,6 @@ setopt nolistbeep
 
 LISTMAX=0
 
-bindkey "^I" menu-complete
 
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
@@ -92,7 +88,7 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/s
 zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~' '*\#'
 
 # -------------------
-# changing directories
+# Changing directories
 # -------------------
 setopt auto_cd
 setopt auto_pushd
@@ -112,7 +108,7 @@ zstyle ':chpwd:*' recent-dirs-prune 'parent'
 zstyle ':completion:*' recent-dirs-insert fallback
 
 # -------------------
-# history
+# History
 # -------------------
 HISTFILE=~/.zsh_histfile
 HISTORY_IGNORE="(cd|pwd|l[sal])"
@@ -139,21 +135,36 @@ zshaddhistory() {
   [[ ${1%%$'\n'} != ${~HISTORY_IGNORE} ]]
 }
 
-autoload history-search-end 
+# -------------------
+# Key Bindings and Functions
+# -------------------
+
+bindkey "^B" backward-word
+bindkey "^F" forward-word
+bindkey "^I" menu-complete
+
+autoload -Uz history-search-end 
 zle -N history-beginning-search-backward-end history-search-end 
 zle -N history-beginning-search-forward-end history-search-end 
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
-autoload -Uz smart-insert-last-word
+autoload -Uz smart-insert-last-word && zle -N insert-last-word smart-insert-last-word
 zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
-zle -N insert-last-word smart-insert-last-word
 bindkey '^]' insert-last-word
+
+autoload -Uz free fdr copy-buffer command-substitution showopt
+
+zle -N copy-buffer
+bindkey '^Y' copy-buffer
+
+zle -N command-substitution
+bindkey '^D' command-substitution
 
 autoload -Uz zmv
 
 # -------------------
-# alias
+# Aliases
 # -------------------
 alias vi='nvim'
 alias vim='nvim'
@@ -195,23 +206,12 @@ alias -s {md,markdown}='typora'
 alias -s {png,jpg,bmp,PNG,JPG,BMP}='pv'
 
 # -------------------
-# functions
+# Source
 # -------------------
-autoload -Uz free fdr copy-buffer command-substitution showopt
-
-zle -N copy-buffer
-zle -N command-substitution
-
-bindkey '^Y' copy-buffer
-bindkey '^D' command-substitution
-
-# -------------------
-# others
-# -------------------
+[ -f ~/.zinit/bin/zinit.zsh ] && source "$ZSH/zinit.zsh"
 (( ${+commands[node]} )) && source "$ZSH/node.zsh"
 #hash tmux 2>/dev/null && source "$ZSH/functions/tmux.zsh"
 
-[ -f ~/.zinit/bin/zinit.zsh ] && source "$ZSH/zinit.zsh"
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
