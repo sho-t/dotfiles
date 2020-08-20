@@ -16,7 +16,6 @@ fpath=( \
 
 cdpath=(~)
 
-eval "$(hub alias -s)"
 eval "$(thefuck --alias)"
 
 export GOPATH=$HOME/.go

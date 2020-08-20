@@ -28,6 +28,7 @@ brew "pango"
 brew "fontforge"
 brew "fzf"
 brew "gdrive"
+brew "gh"
 brew "gibo"
 brew "git"
 brew "python@3.8"
@@ -35,7 +36,6 @@ brew "global"
 brew "go"
 brew "gobject-introspection"
 brew "gradle"
-brew "hub"
 brew "jq"
 brew "lua"
 brew "macvim"
@@ -76,8 +76,12 @@ cask "zoomus"
 mas "GarageBand", id: 682658836
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+mas "LadioCast", id: 411213048
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "PicGIF Lite", id: 844918735
 mas "Slack", id: 803453959
 mas "Spark", id: 1176895641
+mas "The Unarchiver", id: 425424353
 mas "Xcode", id: 497799835
