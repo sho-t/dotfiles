@@ -4,8 +4,6 @@
 umask 022
 export LANG=ja_JP.UTF-8
 export ZSH=$HOME/.zsh
-export LESS='-iMR'
-export MYSQL_PS1='\u@\h[\d] ✘'
 export WORDCHARS='*?_.[]~=&;!#$%^(){}<>'
 export EDITOR='nvim'
 
@@ -90,6 +88,8 @@ zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~' '*\#'
 # -------------------
 # Changing directories
 # -------------------
+cdpath=(~)
+
 setopt auto_cd
 setopt auto_pushd
 setopt pushd_minus
@@ -218,8 +218,30 @@ alias -s {png,jpg,bmp,PNG,JPG,BMP}='pv'
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(anyenv init - --no-rehash)"
-
 # sdkman
 export SDKMAN_DIR=$HOME/.sdkman
 [[ -s $HOME/.sdkman/bin/sdkman-init.sh ]] && source $HOME/.sdkman/bin/sdkman-init.sh
+
+eval "$(anyenv init - --no-rehash)"
+eval "$(thefuck --alias)"
+
+# -------------------
+# Variables
+# -------------------
+export LESS='-iMR'
+export MYSQL_PS1='\u@\h[\d] ✘'
+
+#tmux
+export TMUX_TMPDIR=/tmp
+
+#go
+export GOPATH=$HOME/.go
+
+# fzf
+export FZF_DEFAULT_OPTS="
+    --height 40% --reverse --border
+    --prompt='➜  ' --margin=0,1 --inline-info
+    --color fg:-1,bg:-1,hl:33,fg+:250,bg+:235,hl+:33
+    --color info:37,prompt:37,pointer:230,marker:230,spinner:37"
+export FZF_COMPLETION_TRIGGER=','
+
