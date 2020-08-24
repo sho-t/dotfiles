@@ -45,9 +45,13 @@ zstyle ':vcs_info:git:*' unstagedstr ' ✱ '
 zstyle ':vcs_info:git:*' formats '%F{blue}git:(%F{cyan}%b%c%u%F{blue})'
 zstyle ':vcs_info:git:*' actionformats '%F{blue}git:(%F{cyan}%b%c%u%f|%F{red}%a%F{blue})'
 
-precmd () { vcs_info }
 PROMPT='
 %(?.$GREEN.$RED) ✔ $MAGENTA%c$DEFAULT ${vcs_info_msg_0_}$DEFAULT ✘ '
+
+function precmd () { 
+  vcs_info 
+  ((${+TMUX})) && tmux refresh-client -S
+}
 
 # -------------------
 # Completion
