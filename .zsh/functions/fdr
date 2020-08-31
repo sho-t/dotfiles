@@ -1,8 +1,0 @@
-#!/usr/bin/env zsh
-
-main() {
-  local selected_dir=$(cdr -l | awk '{ print $2 }' | fzf)
-  [[ -n "$selected_dir" ]] && cd ${selected_dir/\~/$HOME}
-}
-
-main 

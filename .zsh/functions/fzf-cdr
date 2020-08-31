@@ -1,0 +1,21 @@
+#!/usr/bin/env zsh
+
+main() {
+  LBUFFER="${LBUFFER}$(__fzf-cdr)"
+  local ret=$?
+  zle reset-prompt
+  return $ret
+}
+
+__fzf-cdr() {
+  emulate -L zsh
+  local opt="$FZF_DEFAULT_OPTS -m --preview 'tree -C {} | head -200' 
+  --bind '?:toggle-preview,ctrl-a:toggle-all'"
+
+  local selected_dir=$(cdr -l | awk '{ print $2 }' | FZF_DEFAULT_OPTS=$opt fzf )
+  local ret=$?
+  [[ -n "$selected_dir" ]] && echo $selected_dir
+  return $ret
+}
+
+main 
