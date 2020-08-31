@@ -157,7 +157,7 @@ autoload -Uz smart-insert-last-word && zle -N insert-last-word smart-insert-last
 zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
 bindkey '^]' insert-last-word
 
-autoload -Uz free fdr copy-buffer command-substitution showopt
+autoload -Uz fdr free copy-buffer command-substitution
 
 zle -N copy-buffer
 bindkey '^Y' copy-buffer

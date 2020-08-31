@@ -1,7 +1,8 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 # https://qiita.com/mollifier/items/26c67347734f9fcda274
-main() {
+#zsh のオプション一覧表示
+function main() {
   set -o | sed -e 's/^no\(.*\)on$/\1  off/' -e 's/^no\(.*\)off$/\1  on/'
 }
 
