@@ -235,17 +235,28 @@ eval "$(thefuck --alias)"
 export LESS='-iMR'
 export MYSQL_PS1='\u@\h[\d] ✘'
 
-#tmux
+# tmux
 export TMUX_TMPDIR=/tmp
 
-#go
+# go
 export GOPATH=$HOME/.go
 
 # fzf
 export FZF_DEFAULT_OPTS="
-    --height 40% --reverse --border
-    --prompt='➜  ' --margin=0,1 --inline-info
-    --color fg:-1,bg:-1,hl:33,fg+:250,bg+:235,hl+:33
-    --color info:37,prompt:37,pointer:230,marker:230,spinner:37"
+    --height 90% --reverse --border
+    --prompt='➜  ' --margin=0,2 --inline-info"
+#    --color fg:-1,bg:-1,hl:33,fg+:250,bg+:235,hl+:33
+#    --color info:37,prompt:37,pointer:230,marker:230,spinner:37"
+#
 export FZF_COMPLETION_TRIGGER=','
+
+# Ctrl + T
+export FZF_CTRL_T_COMMAND=" fd --type f --hidden --follow --exclude .git "
+export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
+
+# Alt + C
+export FZF_ALT_C_OPTS="--select-1 --exit-0 --preview 'tree -C {} | head -200'"
+
+# Ctrl + R
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
