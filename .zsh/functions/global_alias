@@ -3,8 +3,8 @@
 function main() {
   setopt local_options aliases
   local -a global_aliases=(${(@f)"$(alias -g)"})
-  local -a aliases=(${global_aliases%%\=*})
-  if (($aliases[(I)${LBUFFER##* }])); then
+  local -a characters=(${global_aliases%%\=*})
+  if (($characters[(I)${LBUFFER##* }])); then
      zle _expand_alias
      zle expand-word
   fi  
