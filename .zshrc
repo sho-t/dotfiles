@@ -157,13 +157,16 @@ autoload -Uz smart-insert-last-word && zle -N insert-last-word smart-insert-last
 zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
 bindkey '^]' insert-last-word
 
-autoload -Uz free copy-buffer fzf-cdr
+autoload -Uz free copy-buffer fzf-cdr global_alias
 
 zle -N copy-buffer
 bindkey '^Y' copy-buffer
 
 zle -N fzf-cdr
 bindkey '^D' fzf-cdr
+
+zle -N global_alias
+bindkey ' ' global_alias
 
 autoload -Uz zmv
 
