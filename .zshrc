@@ -143,6 +143,8 @@ zshaddhistory() {
 # Key Bindings and Functions
 # -------------------
 
+bindkey -e
+
 bindkey "^B" backward-word
 bindkey "^F" forward-word
 bindkey "^I" menu-complete
