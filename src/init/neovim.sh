@@ -8,5 +8,5 @@ declare -r DOTPATH="${HOME}/dotfiles"
 
 cd $DOTPATH
 git submodule foreach git pull origin master
-pip3 install neovim
+pip3 install pynvim
 nvim :UpdateRemotePlugins
