@@ -246,18 +246,22 @@ export TMUX_TMPDIR=/tmp
 # go
 export GOPATH=$HOME/.go
 
+# bat
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export BAT_THEME="Solarized (dark)"
+
 # fzf
 export FZF_DEFAULT_OPTS="
     --height 90% --reverse --border
     --prompt='➜  ' --margin=0,2 --inline-info"
 #    --color fg:-1,bg:-1,hl:33,fg+:250,bg+:235,hl+:33
 #    --color info:37,prompt:37,pointer:230,marker:230,spinner:37"
-#
+
 export FZF_COMPLETION_TRIGGER=','
 
 # Ctrl + T
 export FZF_CTRL_T_COMMAND=" fd --type f --hidden --follow --exclude .git "
-export FZF_CTRL_T_OPTS='--preview "bat  --color=always --style=header,grid --line-range :100 {}"'
+export FZF_CTRL_T_OPTS='--preview "bat -r :100 --color=always --style=header,grid {}"'
 
 # Alt + C
 export FZF_ALT_C_OPTS="--select-1 --exit-0 --preview 'tree -C {} | head -200'"
