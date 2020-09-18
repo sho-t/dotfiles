@@ -1,10 +1,11 @@
 #!/usr/bin/env zsh
 
 function main() {
-  setopt local_options aliases
+  emulate -L zsh
+  setopt aliases
   local -a global_aliases=(${(@f)"$(alias -g)"})
   local -a characters=(${global_aliases%%\=*})
-  if (($characters[(I)${LBUFFER##* }])); then
+  if (($characters[(I)${(q)LBUFFER##* }])); then
      zle _expand_alias
      zle expand-word
   fi  
