@@ -202,6 +202,7 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias -g A='| awk'
 alias -g C='| wc -l'
+alias -g F='| fzf'
 alias -g G='| grep'
 alias -g GI='| grep -ri'
 alias -g H='| head'
@@ -224,8 +225,8 @@ alias -s {png,jpg,bmp,PNG,JPG,BMP}='pv'
 (( ${+commands[node]} )) && source "$ZSH/node.zsh"
 #hash tmux 2>/dev/null && source "$ZSH/functions/tmux.zsh"
 
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # sdkman
 export SDKMAN_DIR=$HOME/.sdkman
@@ -251,21 +252,88 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export BAT_THEME="Solarized (dark)"
 
 # fzf
-export FZF_DEFAULT_OPTS="
-    --height 90% --reverse --border
-    --prompt='➜  ' --margin=0,2 --inline-info"
-#    --color fg:-1,bg:-1,hl:33,fg+:250,bg+:235,hl+:33
-#    --color info:37,prompt:37,pointer:230,marker:230,spinner:37"
-
 export FZF_COMPLETION_TRIGGER=','
+typeset -Tgx FZF_DEFAULT_OPTS fzf_default_opts " " 
+fzf_default_opts=(
+  '--height=90%' #hogehoge
+  '--reverse' #hogehoge
+  '--border'
+  '--inline-info'
+  '--prompt="➜  "'
+  '--margin=0,2'
+  '--tiebreak=index'
+  '--no-mouse'
+  '--filepath-word'
+)
+
+() {
+  local -A color_map=(
+    [fg]='-1'
+    [bg]='-1'
+    [hl]='33'
+    [fg+]='250'
+    [bg+]='235'
+    [hl+]='33'
+    [info]='37'
+    [prompt]='37'
+    [pointer]='230'
+    [marker]='230'
+    [spinner]='37'
+  )
+
+  for x in "${(k)color_map[@]}"; do
+    fzf_color_opts+=("${x}:${color_map[${x}]}") 
+  done
+  fzf_default_opts+=( '--color="'"${(j.,.)fzf_color_opts}"'"' )
+}
+
+() {
+  local -a fzf_bind_opts=()
+  local -A bind_map=(
+    [?]='toggle-preview'
+    [ctrl-a]='toggle-all'
+    ['ctrl-]']='replace-query'
+    [ctrl-w]='backward-kill-word'
+    [ctrl-x]='jump'
+    [ctrl-z]='ignore'
+    [up]='preview-page-up'
+    [down]='preview-page-down'
+  )
+
+
+  for x in "${(k)bind_map[@]}"; do
+    fzf_bind_opts+=("${x}:${bind_map[${x}]}")
+  done
+  fzf_default_opts+=( '--bind="'"${(j:,:)fzf_bind_opts}"'"' )
+}
 
 # Ctrl + T
-export FZF_CTRL_T_COMMAND=" fd --type f --hidden --follow --exclude .git "
-export FZF_CTRL_T_OPTS='--preview "bat -r :100 --color=always --style=header,grid {}"'
+export FZF_CTRL_T_COMMAND="fd --type f -L "
+typeset -Tgx FZF_CTRL_T_OPTS fzf_ctrl_t_opts " " 
+fzf_ctrl_t_opts=(
+  '--select-1'
+  '--exit-0'
+  '--preview "bat -r :100 --color=always --style=header,grid {}"'
+  "--bind='ctrl-l:execute(tmux splitw -h -- nvim {})'"
+  "--bind='>:reload($FZF_CTRL_T_COMMAND -H -E .git )'"
+  "--bind='<:reload($FZF_CTRL_T_COMMAND)'"
+)
 
 # Alt + C
-export FZF_ALT_C_OPTS="--select-1 --exit-0 --preview 'tree -C {} | head -200'"
+export FZF_ALT_C_COMMAND="fd --type d -L"
+typeset -Tgx FZF_ALT_C_OPTS fzf_alt_c_opts " " 
+fzf_alt_c_opts=(
+  '--select-1'
+  '--exit-0'
+  '--preview "exa -T -L2 --color=always {} | head -200"'
+  "--bind='>:reload($FZF_ALT_C_COMMAND -H -E .git )'"
+  "--bind='<:reload($FZF_ALT_C_COMMAND)'"
+)
 
 # Ctrl + R
-export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+typeset -Tgx FZF_CTRL_R_OPTS fzf_ctrl_r_opts " " 
+fzf_ctrl_r_opts=( 
+  "--preview 'echo {}'"
+  "--preview-window down:3:hidden:wrap"
+)
 
