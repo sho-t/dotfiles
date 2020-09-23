@@ -9,8 +9,9 @@ main() {
 
 __fzf-cdr() {
   emulate -L zsh
-  local opt="$FZF_DEFAULT_OPTS -m --preview 'tree -C {} | head -200' 
-  --bind '?:toggle-preview,ctrl-a:toggle-all'"
+  local opt="$FZF_DEFAULT_OPTS -m 
+  --preview 'exa -T -L2 --color=always {}'
+  --preview-window down:40%"
 
   local selected_dir=$(cdr -l | awk '{ print $2 }' | FZF_DEFAULT_OPTS=$opt fzf )
   local ret=$?
