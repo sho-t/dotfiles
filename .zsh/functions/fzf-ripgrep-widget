@@ -1,0 +1,39 @@
+#!/usr/bin/env zsh
+
+main() {
+  LBUFFER="${LBUFFER}$(__fzf_ripgrep)"
+  local ret=$?
+  zle reset-prompt
+  return $ret
+}
+
+__fzf_ripgrep() {
+  emulate -L zsh
+  rg_cmd="rg --smart-case --line-number --color=always --trim" 
+  # TODO オプション配列化したい
+  # TODO 検索方式切り替えれるようにしたい
+#  fzf_opts=(
+#      '--ansi'
+#      '--phony'
+#      "--bind=change:top+reload($rg_cmd {q} || true)"
+#      "--delimiter=':'"
+#      "--preview='bat -H {2} --color=always --style=header,grid {1}'"
+#      "--preview-window=down:50%:+{2}-10"
+#  )
+
+#  selected=$(FZF_DEFAULT_COMMAND=":" fzf $fzf_opts --preview='bat -H {2} --color=always --style=header,grid {1}')
+  
+  selected=$(FZF_DEFAULT_COMMAND=":" \
+      fzf --bind="change:top+reload($rg_cmd {q} || true)" \
+          --bind="ctrl-l:execute(tmux splitw -h -- nvim +/{q} {1} +{2})" \
+          --ansi --phony \
+          --delimiter=":" \
+          --preview="bat -H {2} --color=always --style=header,grid {1}" \
+          --preview-window='down:60%:+{2}-10')
+
+  local ret=$?
+  [[ -n "$selected" ]] && echo ${${(@s/:/)selected}[1]}
+  return $ret
+}
+
+main 

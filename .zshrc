@@ -108,7 +108,6 @@ zstyle ':chpwd:*' recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-max 500
 zstyle ':chpwd:*' recent-dirs-file \
   $HOME/.cache/shell/.chpwd-recent-dirs-${TTY##*/} +
-zstyle ':chpwd:*' recent-dirs-prune 'parent'
 zstyle ':completion:*' recent-dirs-insert fallback
 
 # -------------------
@@ -159,7 +158,8 @@ autoload -Uz smart-insert-last-word && zle -N insert-last-word smart-insert-last
 zstyle :insert-last-word match '*([[:alpha:]/\\]?|?[[:alpha:]/\\])*'
 bindkey '^]' insert-last-word
 
-autoload -Uz free copy-buffer-widget fzf-cdr-widget expand-alias-widget 
+autoload -Uz free copy-buffer-widget fzf-cdr-widget \
+  expand-alias-widget fzf-ripgrep-widget
 
 zle -N copy-buffer-widget
 bindkey '^Y' copy-buffer-widget
@@ -171,6 +171,9 @@ zle -N expand-alias-widget
 bindkey ' ' expand-alias-widget
 
 autoload -Uz zmv
+
+zle -N fzf-ripgrep-widget
+bindkey '\ef' fzf-ripgrep-widget
 
 # -------------------
 # Aliases
