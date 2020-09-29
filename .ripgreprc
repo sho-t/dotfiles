@@ -1,0 +1,11 @@
+--max-columns=80
+--max-columns-preview
+
+--smart-case
+
+--trim
+
+--type-add
+web:*.{html,css,js}*
+
+--glob=!.git

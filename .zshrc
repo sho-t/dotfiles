@@ -254,6 +254,8 @@ export GOPATH=$HOME/.go
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export BAT_THEME="Solarized (dark)"
 
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+
 # fzf
 export FZF_COMPLETION_TRIGGER=','
 typeset -Tgx FZF_DEFAULT_OPTS fzf_default_opts " " 
