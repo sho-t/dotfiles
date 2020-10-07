@@ -1,15 +1,17 @@
 #!/bin/bash
 
-declare -r ZPLUG="${HOME}/.zplug"
-declare -r DIRCOLORS="${HOME}/.dircolors"
-declare -r COMPLETION_PATH="${HOME}/.zsh/completions"
+readonly ZINIT="${HOME}/.zinit"
+readonly DIRCOLORS="${HOME}/.dircolors"
+readonly COMPLETION_PATH="${HOME}/.zsh/completions"
+
+readonly DOCKER_RESOURCE_PATH="/Applications/Docker.app/Contents/Resources/etc/"
 
 # --------------------------------------------------
 # | zsh setup function
 # --------------------------------------------------
  
 install_zinit() {
-  if [ ! -d ${ZPLUG} ] ; then
+  if [ ! -d ${ZINIT} ] ; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
   fi
 }
@@ -22,11 +24,9 @@ install_dircolors() {
 
 fetch_completions() {
   # docker
-  curl -sL https://raw.githubusercontent.com/docker/cli/master/contrib/completion/zsh/_docker -o ${COMPLETION_PATH}/_docker
+  ln -s ${DOCKER_RESOURCE_PATH}docker.zsh-completion ${COMPLETION_PATH}/_docker
   # docker-compose
-  curl -sL https://raw.githubusercontent.com/docker/compose/$(docker-compose version --short)/contrib/completion/zsh/_docker-compose > ${COMPLETION_PATH}/_docker-compose
-  # hub
-  curl -sL https://raw.githubusercontent.com/github/hub/master/etc/hub.zsh_completion -o ${COMPLETION_PATH}/_hub
+  ln -s ${DOCKER_RESOURCE_PATH}docker-compose.zsh-completion ${COMPLETION_PATH}/_docker-compose
 }
 
 main() {
