@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
-pbcopy <<< ${BUFFER%\n}
+print -rn $BUFFER | pbcopy
 zle -M "Copied"
