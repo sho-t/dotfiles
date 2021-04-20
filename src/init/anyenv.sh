@@ -17,16 +17,24 @@ install_anyenv_plugins() {
 }
 
 install_env() {
-    anyenv install nodenv
-    anyenv install rbenv
-    anyenv install goenv
-    exec $SHELL -l
+  anyenv install nodenv
+  exec $SHELL -l
+}
+
+setup_nodenv() {
+  cat <<-EOF > $(nodenv root)/default-packages
+    yarn
+    typescript
+    ts-node
+    typesync
+EOF
 }
 
 main() {
   init
   install_anyenv_plugins
   install_env
+  setup_nodenv
 }
 
 main "$@"
