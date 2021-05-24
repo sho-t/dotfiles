@@ -18,7 +18,7 @@ install_zinit() {
 
 install_dircolors() {
   if [ ! -r ${DIRCOLORS} ] ; then
-    curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-universal -o $DIRCOLORS
+    curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-universal -o $DIRCOLORS --create-dirs
   fi
 }
 
@@ -30,6 +30,7 @@ fetch_completions() {
 }
 
 main() {
+  mkdir -p ${HOME}/.cache/shell
   install_dircolors
   install_zinit
   fetch_completions
