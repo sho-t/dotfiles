@@ -2,3 +2,6 @@
 # dein lazy setting
 #======================
 
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']

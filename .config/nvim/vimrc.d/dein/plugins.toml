@@ -4,39 +4,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-depends = ['neomru.vim']
-on_cmd = 'Denite'
-if = 'has("nvim")'
-hook_source = 'source ~/.config/nvim/vimrc.d/plugins/denite.vim'
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-if = 'has("nvim")'
-on_event = 'InsertCharPre'
-hook_source = 'source ~/.config/nvim/vimrc.d/plugins/deoplete.vim'
-on_i = 1
-
-[[plugins]]
-repo = 'kassio/neoterm'
-if = 'has("nvim")'
-hook_add = 'source ~/.config/nvim/vimrc.d/plugins/neoterm.vim'
-
-[[plugins]]
-repo = "tpope/vim-fugitive"
-hook_add = 'source ~/.config/nvim/vimrc.d/plugins/fugitive.vim'
-
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_add = 'source ~/.config/nvim/vimrc.d/plugins/lightline.vim'
-
-[[plugins]]
-repo = 'tpope/vim-surround'
-
 #======================
 # colorscheme
 #======================
