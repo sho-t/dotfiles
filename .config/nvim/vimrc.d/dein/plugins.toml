@@ -8,19 +8,8 @@ repo = 'Shougo/dein.vim'
 # colorscheme
 #======================
 [[plugins]]
-repo = 'altercation/vim-colors-solarized'
-
-[[plugins]]
-repo = 'lifepillar/vim-solarized8'
-
-[[plugins]]
-repo = 'nanotech/jellybeans.vim'
-
-[[plugins]]
-repo = 'tomasr/molokai'
-
-[[plugins]]
-repo = 'sjl/badwolf'
-
-[[plugins]]
 repo = 'cocopon/iceberg.vim'
+hook_add = '''
+  set background=dark
+  au Plugin_Hook VimEnter * ++nested colorscheme iceberg
+'''
