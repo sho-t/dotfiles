@@ -11,5 +11,6 @@ repo = 'Shougo/dein.vim'
 repo = 'cocopon/iceberg.vim'
 hook_add = '''
   set background=dark
+  set termguicolors
   au Plugin_Hook VimEnter * ++nested colorscheme iceberg
 '''
