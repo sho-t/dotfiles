@@ -58,8 +58,8 @@ let g:dein#install_github_api_token = $GITHUB_API_TOKEN
 
 " === Command
 command! -nargs=0 DeinInstall :call s:deinInstall()
-command! -nargs=0 DeinUpdateSelf :call dein#update('dein.vim')
-command! -nargs=0 DeinUpdate :call dein#check_update(v:true)
+command! -nargs=0 DeinUpdateSelf :call s:deinUpdate('self')
+command! -nargs=0 DeinUpdate :call s:deinUpdate()
 command! -nargs=0 DeinClean :call s:deinClean()
 
 function! s:deinInstall()
@@ -78,3 +78,16 @@ function! s:deinClean()
     echo '[ERR] no disabled plugins'
   endif
 endfunction
+
+function! s:deinUpdate(...)
+  if empty($GITHUB_API_TOKEN)
+    echo '[ERR] needs $GITHUB_API_TOKEN'
+    return
+  endif
+  if a:0==0 
+    call dein#check_update(v:true)
+  elseif a:1=='self'
+    call dein#update('dein.vim')
+  endif
+endfunction
+
