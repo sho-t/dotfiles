@@ -1,9 +1,6 @@
 [user]
-	name = Sho T
-	email = aznecosann@gmail.com
-
-[commit]
-  template = ~/.gitmessage
+  name = Sho T
+  email = aznecosann@gmail.com
 
 [alias]
   rename = branch -m
@@ -19,3 +16,4 @@
   graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset? %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
   unstage = reset HEAD
 
+# vim:filetype=gitconfig
