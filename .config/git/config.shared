@@ -1,6 +1,42 @@
+[core]
+  fileMode = true
+  quotepath = false
+  ignorecase = false
+  autocrlf = input
+  safecrlf = true
+
 [user]
   name = Sho T
   email = aznecosann@gmail.com
+
+[init]
+  defaultBranch = main
+
+[color]
+  ui = auto
+
+[status]
+  short = true
+  branch = true
+  showUntrackedFiles = all
+
+[diff]
+	mnemonicPrefix = true
+  colorMoved = dimmed-zebra
+
+[push]
+  default = current
+  followTags = true
+
+[fetch]
+  prune = true
+
+[rebase]
+  autostash = true
+
+[pull]
+  rebase = true
+  ff = only
 
 [alias]
   rename = branch -m
