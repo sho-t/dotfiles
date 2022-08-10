@@ -235,17 +235,23 @@ alias -s {png,jpg,bmp,PNG,JPG,BMP}='pv'
 export SDKMAN_DIR=$HOME/.sdkman
 [[ -s $HOME/.sdkman/bin/sdkman-init.sh ]] && source $HOME/.sdkman/bin/sdkman-init.sh
 
-eval "$(anyenv init - --no-rehash)"
 eval "$(thefuck --alias)"
 
 # -------------------
 # Variables
 # -------------------
+
+readonly XDG_CONFIG_DIR=$HOGE/.config
+readonly DATA_DIR=$HOGE/.local/share
+
+export GNUPGHOME=$DATA_DIR/gnupg
+
 export LESS='-iMR'
 export MYSQL_PS1='\u@\h[\d] ✘'
 
 # tmux
 export TMUX_TMPDIR=/tmp
+export VOLTA_HOME="${DATA_DIR}/volta"
 
 # go
 export GOPATH=$HOME/.go
@@ -254,7 +260,7 @@ export GOPATH=$HOME/.go
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export BAT_THEME="Solarized (dark)"
 
-export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/ripgreprc
+export RIPGREP_CONFIG_PATH=$XDG_CONFIG_DIR/ripgrep/ripgreprc
 
 # fzf
 export FZF_COMPLETION_TRIGGER=','
