@@ -1,3 +1,4 @@
+export GPG_TTY=$(tty)
 # -------------------
 # General 
 # -------------------
@@ -241,8 +242,8 @@ eval "$(thefuck --alias)"
 # Variables
 # -------------------
 
-readonly XDG_CONFIG_DIR=$HOGE/.config
-readonly DATA_DIR=$HOGE/.local/share
+readonly CONFIG_DIR=$HOME/.config
+readonly DATA_DIR=$HOME/.local/share
 
 export GNUPGHOME=$DATA_DIR/gnupg
 
@@ -260,7 +261,7 @@ export GOPATH=$HOME/.go
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export BAT_THEME="Solarized (dark)"
 
-export RIPGREP_CONFIG_PATH=$XDG_CONFIG_DIR/ripgrep/ripgreprc
+export RIPGREP_CONFIG_PATH=$CONFIG_DIR/ripgrep/ripgreprc
 
 # fzf
 export FZF_COMPLETION_TRIGGER=','
