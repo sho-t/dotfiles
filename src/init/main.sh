@@ -9,5 +9,5 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 #./ricty.sh
 ./neovim.sh
 ./fzf.sh
-./sdkman.sh
+#./sdkman.sh
 ./volta.sh
