@@ -4,7 +4,7 @@ set -u
 
 declare -r DOTPATH="${HOME}/dotfiles"
 declare -r GITHUB_URL="https://github.com/sho-t/dotfiles.git"
-declare -r GITHUB_UTILS_URL="https://raw.githubusercontent.com/sho-t/dotfiles/master/src/utils.sh"
+declare -r GITHUB_UTILS_URL="https://raw.githubusercontent.com/sho-t/dotfiles/main/src/utils.sh"
 
 # --------------------------------------------------
 # download dotfiles
