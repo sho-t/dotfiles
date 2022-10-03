@@ -43,13 +43,13 @@ main() {
   cd "$DOTPATH/src"
 
   # link dotfiles
-  ./link.sh
+#  ./link.sh
 
   # Install formula
-  ./brew.sh
+#  ./brew.sh
 
   # setup librarys
-  ./init/main.sh
+#  ./init/main.sh
 }
 
 main "$@"
