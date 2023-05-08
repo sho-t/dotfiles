@@ -34,7 +34,7 @@ create_symlinks() {
   ln -sniv "$PWD/.config/tmux/tmux.conf" $CONFIG_DIR/tmux
 
   # ripgrep
-  ln -sniv "$PWD/.config/ripgrep/ripgreprc" $CONFIG_DIR/ripgreprc
+  ln -sniv "$PWD/.config/ripgrep/ripgreprc" $CONFIG_DIR/ripgrep/config
 
   #git 
   for g in $GIT_CONFIGS
