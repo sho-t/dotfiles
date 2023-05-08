@@ -14,7 +14,7 @@ load_utils() {
 
   local tmpFile="$(mktemp /tmp/XXXXX)"
 
-  curl -LsS "$GITHUB_UTILS_URL" -o "$tmpFile" \
+  curl -LsS "$GITHUB_UTILS_URL" -o "$tmpFile" > /dev/null \
   && . "$tmpFile" \
   && rm -rf "$tmpFile" \
   && return 0
