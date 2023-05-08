@@ -11,7 +11,6 @@ declare -r GIT_CONFIGS="${DOTPATH}/.config/git/config*"
 # --------------------------------------------------
 
 make_directories() {
-
   mkdir -p ${HOME}/{.config,.local/share,.cache}
   mkdir -p ${CONFIG_DIR}/{git,tmux,ripgrep}
 }
@@ -24,22 +23,22 @@ create_symlinks() {
     [ "$dotfile" = ".gitignore" ] && continue
     [ "$dotfile" = ".config" ] && continue
 
-    ln -sniv "$PWD/$dotfile" $HOME
+    ln -snf "$PWD/$dotfile" $HOME
   done
 
   # neovim
-  ln -sniv "$PWD/.config/nvim" $CONFIG_DIR
+  ln -snf "$PWD/.config/nvim" $CONFIG_DIR
 
   #tmux
-  ln -sniv "$PWD/.config/tmux/tmux.conf" $CONFIG_DIR/tmux
+  ln -snf "$PWD/.config/tmux/tmux.conf" $CONFIG_DIR/tmux
 
   # ripgrep
-  ln -sniv "$PWD/.config/ripgrep/ripgreprc" $CONFIG_DIR/ripgrep/config
+  ln -snf "$PWD/.config/ripgrep/ripgreprc" $CONFIG_DIR/ripgrep/config
 
   #git 
   for g in $GIT_CONFIGS
   do
-    ln -sniv $g $CONFIG_DIR/git
+    ln -snf $g $CONFIG_DIR/git
   done
 }
 
