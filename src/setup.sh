@@ -25,7 +25,7 @@ load_utils() {
 download_dotfiles() {
   if has "git"; then
     p_start "Downloading dotfiles"  
-    git clone --recursive "$GITHUB_URL" "$DOTPATH" > /dev/null
+    git clone --quiet --recursive "$GITHUB_URL" "$DOTPATH" > /dev/null
   else
     p_error "Git required" 
     exit 1
