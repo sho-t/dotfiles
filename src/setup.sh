@@ -43,7 +43,7 @@ main() {
   cd "$DOTPATH/src"
 
   # link dotfiles
-#  ./link.sh
+  ./link.sh
 
   # Install formula
 #  ./brew.sh
