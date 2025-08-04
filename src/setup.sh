@@ -37,8 +37,8 @@ main() {
   
   load_utils
 
-  #p_start "Dotfiles Setup Starting"
-  #download_dotfiles
+  p_start "Dotfiles Setup Starting"
+  download_dotfiles
 
   cd "$DOTPATH/src"
 
