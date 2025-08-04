@@ -349,3 +349,4 @@ fzf_ctrl_r_opts=(
   "--preview-window down:3:hidden:wrap"
 )
 
+export PATH="$VOLTA_HOME/bin:$PATH"

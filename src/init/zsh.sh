@@ -12,13 +12,13 @@ readonly DOCKER_RESOURCE_PATH="/Applications/Docker.app/Contents/Resources/etc/"
  
 install_zinit() {
   if [ ! -d ${ZINIT} ] ; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
   fi
 }
 
 install_dircolors() {
   if [ ! -r ${DIRCOLORS} ] ; then
-    curl https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-universal -o $DIRCOLORS --create-dirs
+    curl -fsSL https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.ansi-universal -o $DIRCOLORS --create-dirs
   fi
 }
 
