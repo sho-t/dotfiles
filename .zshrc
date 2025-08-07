@@ -250,6 +250,10 @@ export GNUPGHOME=$DATA_DIR/gnupg
 export LESS='-iMR'
 export MYSQL_PS1='\u@\h[\d] ✘'
 
+# aws
+export AWS_SHARED_CREDENTIALS_FILE="${CONFIG_DIR}/aws/credentials"
+export AWS_CONFIG_FILE="${CONFIG_DIR}/aws/config"
+
 # tmux
 export TMUX_TMPDIR=/tmp
 export VOLTA_HOME="${DATA_DIR}/volta"
