@@ -1,6 +1,10 @@
+if [ -r /etc/zshrc ]; then
+    . /etc/zshrc
+fi
+
 export GPG_TTY=$(tty)
 # -------------------
-# General 
+# General
 # -------------------
 umask 022
 export LANG=ja_JP.UTF-8
